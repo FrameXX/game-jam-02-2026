@@ -169,7 +169,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="CanvasLayer/Panel" unique_id=163734659]
+[node name="CrossDialogueButton" type="Button" parent="CanvasLayer/Panel" unique_id=163734659]
 layout_mode = 0
 anchor_left = 0.8928572
 anchor_top = -0.098684885
@@ -183,7 +183,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_5pdws")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_hd3ao")
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Button" unique_id=381637376]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/CrossDialogueButton" unique_id=381637376]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -197,3 +197,4 @@ stretch_mode = 6
 [connection signal="pressed" from="CanvasLayer/Control/Main/MarginContainer/HBoxContainer/Build" to="CanvasLayer/Control/Building" method="_on_build_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/Button" to="CanvasLayer/Control/Main" method="_on_button_pressed_plus_10"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/Hole" to="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/Hole" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/CrossDialogueButton" to="CanvasLayer" method="_on_cross_dialogue_button_pressed"]
