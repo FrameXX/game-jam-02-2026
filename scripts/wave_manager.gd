@@ -1,28 +1,9 @@
 extends Node2D
 
-# 1. Load the scene file
-#const ENEMY_SCENE = preload("res://scenes/enemies/basic.tscn")
-
-# Removed the @onready var that pointed to a specific enemy instance
-#
-##var new_enemy = ENEMY_SCENE.instantiate()
-#func _on_timer_timeout():
-#	# 2. Create a fresh instance of the enemy
-#	
-#	# 3. Get the Path2D node (the parent)
-#	var path_node = $"../Map/Path2D"
-#	
-#	# 4. Add the enemy as a child of the path
-#	path_node.add_child(ENEMY_SCENE.instantiate())
-#	
-#	# 5. Optional: Ensure it starts at the beginning
-#	new_enemy.progress = 0
-#	
-#	print("Enemy added to path!")
-#
 var wave_file: String = "res://levels/level_00.json"
 var wave_data: Dictionary
 var current_wave_index: int = 0
+var path_node: Path2D # We will fill this from the outside
 
 func _ready():
 	wave_data = load_wave_data(wave_file)
@@ -44,10 +25,13 @@ func spawn_enemy_group(group: Dictionary):
 	# group["type"] -> "slime"
 	# group["count"] -> 5
 	# group["interval"] -> 1.0
+	if not path_node:
+		printerr("WaveManager Error: No Path2D assigned!")
+		return
+		
 	for i in range(group["count"]):
 		print("Spawning ", group["type"])
 		var current_enemy = load("res://scenes/enemies/" + group["type"] + ".tscn")
-		var path_node = $"../Map/Path2D"
 #		
 #		# 4. Add the enemy as a child of the path
 		path_node.add_child(current_enemy.instantiate())
