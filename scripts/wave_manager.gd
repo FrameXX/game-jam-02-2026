@@ -1,7 +1,7 @@
 extends Node2D
 
 # 1. Load the scene file
-const ENEMY_SCENE = preload("res://scenes/BasicEnemyPathFollow.tscn")
+const ENEMY_SCENE = preload("res://scenes/basic_enemy_path_follow.tscn")
 
 # Removed the @onready var that pointed to a specific enemy instance
 
@@ -10,7 +10,7 @@ func _on_timer_timeout():
 	# 2. Create a fresh instance of the enemy
 	
 	# 3. Get the Path2D node (the parent)
-	var path_node = $map/Path2D
+	var path_node = $"../Map/Path2D"
 	
 	# 4. Add the enemy as a child of the path
 	path_node.add_child(ENEMY_SCENE.instantiate())
