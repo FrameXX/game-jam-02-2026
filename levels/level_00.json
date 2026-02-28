@@ -1,0 +1,21 @@
+{
+  "level_id": "forest_01",
+  "waves": [
+	{
+	  "wave_number": 1,
+	  "spawn_delay": 2.0,
+	  "enemies": [
+		{ "type": "slime", "count": 5, "interval": 1.0 },
+		{ "type": "bat", "count": 2, "interval": 2.5 }
+	  ]
+	},
+	{
+	  "wave_number": 2,
+	  "spawn_delay": 1.5,
+	  "enemies": [
+		{ "type": "slime", "count": 10, "interval": 0.5 },
+		{ "type": "boss_orc", "count": 1, "interval": 0.0 }
+	  ]
+	}
+  ]
+}

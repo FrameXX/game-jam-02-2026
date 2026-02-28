@@ -1,7 +1,7 @@
 extends Node2D
 
 # 1. Load the scene file
-const ENEMY_SCENE = preload("res://scenes/basic_enemy_path_follow.tscn")
+const ENEMY_SCENE = preload("res://scenes/enemies/basic.tscn")
 
 # Removed the @onready var that pointed to a specific enemy instance
 
