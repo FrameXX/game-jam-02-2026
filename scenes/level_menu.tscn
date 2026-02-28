@@ -39,14 +39,17 @@ theme_override_constants/separation = 50
 [node name="level1" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1121426369]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+text = "LEVEL 1"
 
 [node name="level2_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1625136041]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+text = "LEVEL 2"
 
 [node name="level3_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1246492795]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+text = "LEVEL 3"
 
 [node name="level4_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=299402760]
 custom_minimum_size = Vector2(400, 0)
