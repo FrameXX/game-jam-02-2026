@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b40ay4nmbjthy"
-path="res://.godot/imported/plasma_shell.png-fbf784819f2bb0c985d4844c842374de.ctex"
+uid="uid://bal20b8mfrgxu"
+path="res://.godot/imported/plasma_shell_head.png-94608fa40acf3ce31c9d50c1766db673.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/plasma_shell.png"
-dest_files=["res://.godot/imported/plasma_shell.png-fbf784819f2bb0c985d4844c842374de.ctex"]
+source_file="res://assets/plasma_shell_head.png"
+dest_files=["res://.godot/imported/plasma_shell_head.png-94608fa40acf3ce31c9d50c1766db673.ctex"]
 
 [params]
 
