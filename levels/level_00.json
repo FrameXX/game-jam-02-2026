@@ -5,7 +5,7 @@
 	  "wave_number": 1,
 	  "spawn_delay": 2.0,
 	  "enemies": [
-		{ "type": "basic", "count": 5, "interval": 3.0 },
+		{ "type": "basic", "count": 50, "interval": 0.3 },
 	  ]
 	},
 	{
