@@ -1,9 +1,22 @@
 [gd_scene format=3 uid="uid://dsv1yaispraxf"]
 
 [ext_resource type="PackedScene" uid="uid://cftgkr22fkpxd" path="res://scenes/hud.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://dpmftndkq0afa" path="res://assets/placeholder/background.jpeg" id="2_yqjtg"]
 
 [node name="Game" type="Node2D" unique_id=2084050853]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=9673292]
 
 [node name="Node2D" parent="." unique_id=693319808 instance=ExtResource("1_uwrxv")]
+top_level = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1735955212]
+layer = 0
+
+[node name="Sprite2D" type="TextureRect" parent="CanvasLayer" unique_id=1890359675]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yqjtg")
