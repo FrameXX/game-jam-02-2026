@@ -18,7 +18,15 @@ func start_wave(index: int):
 	print("Starting Wave: ", current_wave["wave_number"])
 
 	for enemy_group in current_wave["enemies"]:
-		spawn_enemy_group(enemy_group)
+		await spawn_enemy_group(enemy_group)
+	var delay = current_wave.get("spawn_delay", 2.0)
+	print("Wave ", current_wave["wave_number"], " spawn complete. Waiting ", delay, "s...")
+	
+	await get_tree().create_timer(delay).timeout
+	
+	# 4. Move to the next index and start again
+	current_wave_index += 1
+	start_wave(current_wave_index)
 
 func spawn_enemy_group(group: Dictionary):
 	# group["type"] -> "slime"
