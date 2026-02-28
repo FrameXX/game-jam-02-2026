@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c3ltysmlc7cx5"]
+
+[ext_resource type="Texture2D" uid="uid://bi6uckn5grmsg" path="res://assets/enemy_basic.png" id="1_t406m"]
+
+[node name="BasicEnemyPathFollow" type="PathFollow2D" unique_id=792703532]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1256431635]
+texture = ExtResource("1_t406m")

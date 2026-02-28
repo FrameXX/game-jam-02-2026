@@ -1,10 +1,20 @@
 [gd_scene format=3 uid="uid://dsv1yaispraxf"]
 
+[ext_resource type="Script" uid="uid://cvqtlen6cxcwm" path="res://scripts/wave_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://cftgkr22fkpxd" path="res://scenes/hud.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://cgeloown8i58b" path="res://scripts/camera_2d.gd" id="2_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://laip452mqd1i" path="res://scenes/map1.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" path="res://scenes/map1.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://c3ltysmlc7cx5" path="res://scenes/BasicEnemyPathFollow.tscn" id="5_p57ef"]
+[ext_resource type="Script" uid="uid://buky14crnmqmh" path="res://scripts/basic_enemy_path_follow.gd" id="6_p57ef"]
+
+[sub_resource type="Curve2D" id="Curve2D_u5sy4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -190, 255, 0, 0, 0, 0, 144, 257, 0, 0, 0, 0, 145, 145, 0, 0, 0, 0, 2, 145, 0, 0, 0, 0, 0, 18)
+}
+point_count = 5
 
 [node name="Game" type="Node2D" unique_id=2084050853]
+script = ExtResource("1_iywne")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=9673292]
 script = ExtResource("2_lbhrr")
@@ -23,4 +33,19 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.7058824, 0.011764706, 1)
 
-[node name="Node2D" parent="." unique_id=744651617 instance=ExtResource("3_lnu2h")]
+[node name="map" parent="." unique_id=744651617 instance=ExtResource("3_lnu2h")]
+
+[node name="Path2D" type="Path2D" parent="map" unique_id=1623323953]
+curve = SubResource("Curve2D_u5sy4")
+
+[node name="Timer" type="Timer" parent="map/Path2D" unique_id=32897567]
+wait_time = 2.0
+autostart = true
+
+[node name="BasicEnemyPathFollow" parent="map/Path2D" unique_id=993700949 instance=ExtResource("5_p57ef")]
+z_index = 1
+position = Vector2(-190, 255)
+rotation = 0.005987952
+script = ExtResource("6_p57ef")
+
+[connection signal="timeout" from="map/Path2D/Timer" to="." method="_on_timer_timeout"]
