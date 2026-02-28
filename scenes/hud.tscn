@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cftgkr22fkpxd"]
 
 [ext_resource type="Script" uid="uid://du0kpq5p75cmj" path="res://scripts/building.gd" id="1_ahhtf"]
-[ext_resource type="Script" uid="uid://ccqoof8sts1n4" path="res://scripts/main_hud_panel.gd" id="1_oo0fn"]
+[ext_resource type="Script" path="res://scripts/main_hud_panel.gd" id="1_oo0fn"]
 
 [sub_resource type="GDScript" id="GDScript_5ysmq"]
 script/source = "extends Button
@@ -23,15 +23,18 @@ func _process(delta: float) -> void:
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=586813535]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 39.999985
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Main" type="Panel" parent="CanvasLayer/Control" unique_id=2051608416]
-layout_mode = 0
-offset_top = -2.0
-offset_right = 1151.0
-offset_bottom = 36.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 41.0
+grow_horizontal = 2
 script = ExtResource("1_oo0fn")
 
 [node name="Gold" type="Label" parent="CanvasLayer/Control/Main" unique_id=208625136]
@@ -44,39 +47,47 @@ text = "Gold: 100"
 vertical_alignment = 1
 autowrap_trim_flags = 128
 
-[node name="Build" type="Button" parent="CanvasLayer/Control/Main" unique_id=182683720]
-layout_mode = 0
-offset_left = 1102.0
-offset_top = 2.0
-offset_right = 1150.0
-offset_bottom = 33.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Main" unique_id=769399303]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/Main/MarginContainer" unique_id=1368323747]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Start" type="Button" parent="CanvasLayer/Control/Main/MarginContainer/HBoxContainer" unique_id=1090471306]
+layout_mode = 2
+text = "Start"
+
+[node name="Delete" type="Button" parent="CanvasLayer/Control/Main/MarginContainer/HBoxContainer" unique_id=438276596]
+layout_mode = 2
+text = "Delete"
+
+[node name="Build" type="Button" parent="CanvasLayer/Control/Main/MarginContainer/HBoxContainer" unique_id=182683720]
+layout_mode = 2
 text = "Build
 "
 script = SubResource("GDScript_5ysmq")
 
-[node name="Start" type="Button" parent="CanvasLayer/Control/Main" unique_id=1090471306]
-layout_mode = 0
-offset_left = 963.0
-offset_top = 3.0
-offset_right = 1022.0
-offset_bottom = 34.0
-text = "Start"
-
-[node name="Delete" type="Button" parent="CanvasLayer/Control/Main" unique_id=438276596]
-layout_mode = 0
-offset_left = 1034.0
-offset_top = 3.0
-offset_right = 1093.0
-offset_bottom = 34.0
-text = "Delete"
-
 [node name="Building" type="Panel" parent="CanvasLayer/Control" unique_id=1495853149]
-layout_mode = 0
-offset_left = 1140.0
-offset_top = 42.606308
-offset_right = 1736.2585
-offset_bottom = 78.70506
-rotation = 1.5707964
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = 46.0
+grow_horizontal = 0
+grow_vertical = 2
 script = ExtResource("1_ahhtf")
 
 [node name="Button" type="Button" parent="CanvasLayer/Control/Building" unique_id=337559042]
@@ -87,5 +98,5 @@ offset_right = 42.393692
 offset_bottom = 33.0
 text = "+10"
 
-[connection signal="pressed" from="CanvasLayer/Control/Main/Build" to="CanvasLayer/Control/Building" method="_on_build_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main/MarginContainer/HBoxContainer/Build" to="CanvasLayer/Control/Building" method="_on_build_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/Button" to="CanvasLayer/Control/Main" method="_on_button_pressed_plus_10"]
