@@ -1,7 +1,13 @@
 extends Node2D
-
-@onready var tile_map: TileMapLayer = $TileMapLayer # Use TileMap in Godot 3/4.0-4.2
+@onready var tile_map: TileMap = $TileMap # Use TileMap in Godot 3/4.0-4.2
 var selected_building_path: String = "" # Path to the PackedScene (.tscn)
+
+func _ready():
+	GameEvents.building_selected.connect(_on_building_selected)
+
+func _on_building_selected(path: String):
+	selected_building_path = path
+	print("Manager received: ", path)
 
 func _unhandled_input(event: InputEvent):
 	# 1. Check if we have something selected and the user clicked
