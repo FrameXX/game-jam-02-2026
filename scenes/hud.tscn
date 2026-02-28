@@ -79,6 +79,7 @@ text = "Build
 script = SubResource("GDScript_5ysmq")
 
 [node name="Building" type="Panel" parent="CanvasLayer/Control" unique_id=1495853149]
+visible = false
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
