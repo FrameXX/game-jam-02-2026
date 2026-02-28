@@ -8,8 +8,18 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_level1_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+
 
 func _on_back_to_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func _on_level1_pressed() -> void:
+	Global.selected_level = 1;
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+
+
+func _on_level_2_pressed() -> void:
+	Global.selected_level = 2;
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
+>>>>>>> ccbd680 (Level creation progress)

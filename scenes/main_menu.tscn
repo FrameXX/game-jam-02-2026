@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://houtj6vtko84"]
 
-[ext_resource type="Script" uid="uid://ctnqft28rh3nj" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://ctnqft28rh3nj" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://btrv1p0wd82oh" path="res://assets/pitfall_spritesheet.png" id="2_ekxnf"]
-[ext_resource type="Script" uid="uid://blqdfvfd578ym" path="res://scenes/animated_sprite_2d.gd" id="3_bqqt6"]
+[ext_resource type="Script" path="res://scripts/animated_sprite_2d.gd" id="3_bqqt6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bqqt6"]
 atlas = ExtResource("2_ekxnf")

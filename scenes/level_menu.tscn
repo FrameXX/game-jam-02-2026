@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://8wof5o58fbdb"]
 
 [ext_resource type="Script" uid="uid://bjtc8tsofjkci" path="res://scripts/level_menu.gd" id="1_yl4fo"]
+[ext_resource type="Texture2D" uid="uid://d02w1tgq23hsp" path="res://assets/map01.png" id="2_rj3wb"]
 
 [node name="LevelMenu" type="Node2D" unique_id=1435029209]
 script = ExtResource("1_yl4fo")
@@ -41,6 +42,17 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 text = "LEVEL 1"
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer/level1" unique_id=2083922265]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rj3wb")
+expand_mode = 2
+stretch_mode = 6
+
 [node name="level2_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1625136041]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
@@ -75,4 +87,5 @@ text = "Back to menu"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level1" to="." method="_on_level1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level2_notworking" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/back_to_menu_button" to="." method="_on_back_to_menu_button_pressed"]
