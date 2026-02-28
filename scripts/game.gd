@@ -3,7 +3,6 @@ extends Node2D
 @export var level_map_scene: PackedScene # Drag your Map.tscn here in the inspector
 
 func _ready():
-	
 	# Instantiate the selected map
 	load_level(Global.selected_level)
 
