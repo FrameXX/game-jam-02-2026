@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://8wof5o58fbdb"]
+
+[ext_resource type="Script" uid="uid://bjtc8tsofjkci" path="res://scenes/level_menu.gd" id="1_yl4fo"]
+
+[node name="LevelMenu" type="Node2D" unique_id=1435029209]
+script = ExtResource("1_yl4fo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1154686119]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1627930855]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control" unique_id=1487708700]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -539.5
+offset_top = -157.5
+offset_right = 539.5
+offset_bottom = 157.5
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/ScrollContainer" unique_id=1188124098]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="level1" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1121426369]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1625136041]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1246492795]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=299402760]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Button5" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=133943776]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1228659302]
+layout_mode = 2
+
+[connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level1" to="." method="_on_level1_pressed"]
