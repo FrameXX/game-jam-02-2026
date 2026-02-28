@@ -1,6 +1,7 @@
 extends Panel
 
-@onready var building: Panel = $"."
+var gold: int = 100
+@onready var gold_label: Label = $"../Main/Gold"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,6 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-		
-func _on_build_pressed() -> void:
-	building.visible = !building.visible
+
+func _on_button_pressed_plus_10() -> void:
+	gold += 10
+	gold_label.text = "Gold: " + str(gold)
