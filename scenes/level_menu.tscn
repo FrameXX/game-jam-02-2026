@@ -40,23 +40,36 @@ theme_override_constants/separation = 50
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="Button2" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1625136041]
+[node name="level2_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1625136041]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="Button3" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1246492795]
+[node name="level3_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1246492795]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="Button4" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=299402760]
+[node name="level4_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=299402760]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="Button5" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=133943776]
+[node name="level5_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=133943776]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="Button6" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1228659302]
+[node name="level6_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1228659302]
 layout_mode = 2
+
+[node name="back_to_menu_button" type="Button" parent="CanvasLayer/Control" unique_id=1787941652]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8070313
+anchor_top = 0.8875
+anchor_right = 0.98515624
+anchor_bottom = 0.975
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back to menu"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level1" to="." method="_on_level1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/back_to_menu_button" to="." method="_on_back_to_menu_button_pressed"]
