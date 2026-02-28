@@ -1,9 +1,10 @@
 extends CanvasLayer
 
-@onready var panel = $Panel
-@onready var label = $Panel/Label
+var panel
+var label = $Panel/Label
 
 func _ready():
+	panel = $Panel
 	panel.visible = false
 
 func show_dialog(text: String):
