@@ -26,7 +26,8 @@ func load_level(level_number: int):
 		if actual_path:
 			$WaveManager.path_node = actual_path
 			$WaveManager.wave_file = json_path
-			$WaveManager.load_wave_data(json_path)
+			$WaveManager.wave_data = $WaveManager.load_wave_data(json_path)
 			print("Loaded Level: ", level_number)
+			$WaveManager.start_wave(0)
 	else:
 		printerr("Map file not found: ", map_path)

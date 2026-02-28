@@ -6,9 +6,8 @@ var current_wave_index: int = 0
 var path_node: Path2D # We will fill this from the outside
 
 func _ready():
-	wave_data = load_wave_data(wave_file)
-	start_wave(current_wave_index)
-
+	pass
+	
 func start_wave(index: int):
 	var waves = wave_data.get("waves", [])
 	if index >= waves.size():
