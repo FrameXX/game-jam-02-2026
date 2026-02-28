@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvqtlen6cxcwm" path="res://scripts/wave_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://cftgkr22fkpxd" path="res://scenes/hud.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://tw2nc0iemn7b" path="res://scripts/placement_manager.gd" id="2_iywne"]
 [ext_resource type="Script" uid="uid://cgeloown8i58b" path="res://scripts/camera_2d.gd" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://laip452mqd1i" path="res://scenes/map1.tscn" id="3_lnu2h"]
 
@@ -15,6 +16,9 @@ point_count = 5
 
 [node name="WaveManager" type="Node2D" parent="." unique_id=1414220228]
 script = ExtResource("1_iywne")
+
+[node name="PlacementManager" type="Node2D" parent="." unique_id=386393672]
+script = ExtResource("2_iywne")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=9673292]
 script = ExtResource("2_lbhrr")
