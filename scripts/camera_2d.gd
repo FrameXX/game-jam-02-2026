@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var move_speed: float = 600.0
+@export var move_speed: float = 800.0
 @export var zoom_speed: float = 0.05
 @export var min_zoom: float = 0.5
 @export var max_zoom: float = 2.0
@@ -29,7 +29,6 @@ func _process(delta: float):
 	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
 		
-	# Normalize to prevent faster diagonal movement
 	if direction.length() > 0:
 		direction = direction.normalized()
 		

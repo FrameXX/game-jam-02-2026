@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cvqtlen6cxcwm" path="res://scripts/wave_manager.gd" id="1_iywne"]
 [ext_resource type="Script" uid="uid://cmneyvf2ivedg" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cftgkr22fkpxd" path="res://scenes/hud.tscn" id="1_uwrxv"]
-[ext_resource type="Script" uid="uid://tw2nc0iemn7b" path="res://scripts/placement_manager.gd" id="2_iywne"]
+[ext_resource type="Script" uid="uid://tw2nc0iemn7b" path="res://scripts/building_manager.gd" id="2_iywne"]
 [ext_resource type="Script" uid="uid://cgeloown8i58b" path="res://scripts/camera_2d.gd" id="2_lbhrr"]
 
 [node name="Game" type="Node2D" unique_id=2084050853]
@@ -12,7 +12,11 @@ script = ExtResource("1_p57ef")
 [node name="WaveManager" type="Node2D" parent="." unique_id=1414220228]
 script = ExtResource("1_iywne")
 
-[node name="PlacementManager" type="Node2D" parent="." unique_id=386393672]
+[node name="Timer" type="Timer" parent="WaveManager" unique_id=32897567]
+wait_time = 2.0
+autostart = true
+
+[node name="BuildingManager" type="Node2D" parent="." unique_id=386393672]
 script = ExtResource("2_iywne")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=9673292]
@@ -32,8 +36,4 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.7058824, 0.011764706, 1)
 
-[node name="Timer" type="Timer" parent="." unique_id=32897567]
-wait_time = 2.0
-autostart = true
-
-[connection signal="timeout" from="Timer" to="WaveManager" method="_on_timer_timeout"]
+[connection signal="timeout" from="WaveManager/Timer" to="WaveManager" method="_on_timer_timeout"]
