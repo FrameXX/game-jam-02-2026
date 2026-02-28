@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://cftgkr22fkpxd"]
 
+[ext_resource type="Script" uid="uid://m55mfcpgya63" path="res://scripts/HUD_controller.gd" id="1_5pdws"]
 [ext_resource type="Script" uid="uid://du0kpq5p75cmj" path="res://scripts/building_panel.gd" id="1_ahhtf"]
 [ext_resource type="Script" uid="uid://ccqoof8sts1n4" path="res://scripts/main_hud_panel.gd" id="1_oo0fn"]
 [ext_resource type="Texture2D" uid="uid://dkb8u1iwcskbh" path="res://assets/hole.png" id="3_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://v4hoc1oxqg63" path="res://assets/plasma_shell.png" id="4_6fi6k"]
-[ext_resource type="Script" uid="uid://cvseh6wf04bii" path="res://scripts/hole.gd" id="4_uo2fv"]
+[ext_resource type="Script" path="res://scripts/hole.gd" id="4_uo2fv"]
+[ext_resource type="Texture2D" uid="uid://ej3wua1cthrx" path="res://assets/cross_button.png" id="6_047uy"]
 
 [sub_resource type="GDScript" id="GDScript_5ysmq"]
 script/source = "extends Button
@@ -20,9 +22,16 @@ func _process(delta: float) -> void:
 	pass
 "
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_047uy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pdws"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hd3ao"]
+
 [node name="Node2D" type="Node2D" unique_id=693319808]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2026408014]
+script = ExtResource("1_5pdws")
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=586813535]
 layout_mode = 3
@@ -136,6 +145,54 @@ custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
 icon = ExtResource("4_6fi6k")
 icon_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1306409436]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -221.0
+offset_top = -119.99994
+offset_right = -181.0
+offset_bottom = -79.99994
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(10.92, 2.28)
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=863438566]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel" unique_id=163734659]
+layout_mode = 0
+anchor_left = 0.8928572
+anchor_top = -0.098684885
+anchor_right = 1.0252364
+anchor_bottom = 0.49858642
+offset_right = 2.704834
+offset_bottom = -15.890852
+scale = Vector2(0.6618955, 2.9863565)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_047uy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5pdws")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hd3ao")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Button" unique_id=381637376]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_047uy")
+expand_mode = 2
+stretch_mode = 6
 
 [connection signal="pressed" from="CanvasLayer/Control/Main/MarginContainer/HBoxContainer/Build" to="CanvasLayer/Control/Building" method="_on_build_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/Button" to="CanvasLayer/Control/Main" method="_on_button_pressed_plus_10"]

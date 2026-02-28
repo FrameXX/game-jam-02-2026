@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bjtc8tsofjkci" path="res://scripts/level_menu.gd" id="1_yl4fo"]
 [ext_resource type="Texture2D" uid="uid://d02w1tgq23hsp" path="res://assets/map01.png" id="2_rj3wb"]
+[ext_resource type="Texture2D" uid="uid://bncscpcnhb5yu" path="res://assets/map02.png" id="3_jqwib"]
 
 [node name="LevelMenu" type="Node2D" unique_id=1435029209]
 script = ExtResource("1_yl4fo")
@@ -53,10 +54,21 @@ texture = ExtResource("2_rj3wb")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="level2_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1625136041]
+[node name="level2" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1625136041]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 text = "LEVEL 2"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer/level2" unique_id=34452532]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_jqwib")
+expand_mode = 2
+stretch_mode = 6
 
 [node name="level3_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1246492795]
 custom_minimum_size = Vector2(400, 0)
@@ -66,13 +78,16 @@ text = "LEVEL 3"
 [node name="level4_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=299402760]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+text = "To be implemented later..."
 
 [node name="level5_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=133943776]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+text = "To be implemented later..."
 
 [node name="level6_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1228659302]
 layout_mode = 2
+text = "To be implemented later..."
 
 [node name="back_to_menu_button" type="Button" parent="CanvasLayer/Control" unique_id=1787941652]
 layout_mode = 1
@@ -87,5 +102,5 @@ text = "Back to menu"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level1" to="." method="_on_level1_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level2_notworking" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/back_to_menu_button" to="." method="_on_back_to_menu_button_pressed"]
