@@ -11,6 +11,7 @@ func _on_start_pressed():
 	# Optional: Hide the button so they can't spam it during the wave
 	$%Start.hide()
 	$%Build.hide()
+	$%Building.hide()
 
 func _on_button_pressed_plus_10() -> void:
 	Global.gold += 10
@@ -21,7 +22,6 @@ func show_start_button():
 
 func show_build_button():
 	$%Build.show()
-
 
 func _on_return_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

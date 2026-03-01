@@ -82,6 +82,7 @@ func attack_target() -> void:
 
 	# Check if target still has the take_damage method
 	if current_target.has_method("take_damage"):
+		print(damage)
 		current_target.take_damage(damage)
 		print("Plasma shell attacked enemy for ", damage, " damage!")
 

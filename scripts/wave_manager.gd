@@ -61,8 +61,6 @@ func spawn_enemy_group(group: Dictionary):
 		print("Spawning ", group["type"])
 		var current_enemy = load("res://scenes/enemies/" + group["type"] + ".tscn")
 	# 3. Instantiate and Add
-		var enemy = enemy_scene.instantiate()
-		path_node.add_child(enemy) # The enemy (PathFollow2D) is now on the correct track
 		var enemy_instance = current_enemy.instantiate()
 		enemy_instance.add_to_group("enemies")
 #		# 4. Add the enemy as a child of the path
