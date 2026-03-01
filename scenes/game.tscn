@@ -28,7 +28,7 @@ top_level = true
 [node name="Background" type="CanvasLayer" parent="." unique_id=1735955212]
 layer = -1
 
-[node name="GreenRect" type="ColorRect" parent="Background" unique_id=711363852]
+[node name="Rectangle" type="ColorRect" parent="Background" unique_id=711363852]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
