@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dubax8wqxeylk"]
 
+[ext_resource type="Script" uid="uid://dcaf4768gwmsn" path="res://scripts/buildings/hole.gd" id="1_f8j7q"]
 [ext_resource type="Texture2D" uid="uid://dkb8u1iwcskbh" path="res://assets/hole.png" id="1_lerre"]
 
 [node name="Hole" type="Node2D" unique_id=1666798034]
+script = ExtResource("1_f8j7q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=489870590]
 texture = ExtResource("1_lerre")
