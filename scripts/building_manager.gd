@@ -102,5 +102,14 @@ func place_building():
 		center_pos = tile_map.map_to_local(cell_pos)
 		building.global_position = tile_map.to_global(center_pos)
 		add_child(building)
+		
+		print(selected_building_path)
+		var gold_label: Label = $"../HUD/CanvasLayer/Control/Main/Gold"
+		if selected_building_path.contains("hole"):
+			Global.gold -= 10
+			gold_label.text = "Gold: " + str(Global.gold)
+		if selected_building_path.contains("plasma_shell"):
+			Global.gold -= 50
+			gold_label.text = "Gold: " + str(Global.gold)
 
 	selected_building_path = ""
