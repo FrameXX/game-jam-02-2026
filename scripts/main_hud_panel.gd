@@ -21,3 +21,7 @@ func show_start_button():
 
 func show_build_button():
 	$%Build.show()
+
+
+func _on_return_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
