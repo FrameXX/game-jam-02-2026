@@ -102,6 +102,7 @@ func place_building():
 	if building.get("needs_path") == true:  
 		var is_path_tile = data.get_custom_data("is_path")  
 		if is_path_tile != true:  
+			print("NOT A PATH, CANNOT PLACE")
 			can_place_here = false  
 
 	if can_place_here:  

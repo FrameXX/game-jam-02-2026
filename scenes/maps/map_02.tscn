@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://6re0jl2b3b1y"]
+[gd_scene format=3 uid="uid://dd4wrkthgxmr3"]
 
 [ext_resource type="Texture2D" uid="uid://bfukt7gtrjpdv" path="res://assets/fel_picture.png" id="1_anctn"]
 [ext_resource type="Texture2D" uid="uid://b4ocw1pbxq6ki" path="res://assets/grass.png" id="2_fxbvx"]
@@ -11,8 +11,11 @@ texture = ExtResource("2_fxbvx")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_my53i"]
 texture = ExtResource("3_dixh4")
 0:0/0 = 0
+0:0/0/custom_data_0 = true
 
 [sub_resource type="TileSet" id="TileSet_ay63b"]
+custom_data_layer_0/name = "is_path"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_85y4l")
 sources/1 = SubResource("TileSetAtlasSource_my53i")
 
