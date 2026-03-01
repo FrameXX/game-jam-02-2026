@@ -138,7 +138,6 @@ layout_mode = 2
 [node name="Hole" type="Button" parent="CanvasLayer/Control/Building/MarginContainer/HBoxContainer" unique_id=23713512]
 custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
-text = "10"
 icon = ExtResource("3_5ysmq")
 icon_alignment = 1
 vertical_icon_alignment = 0
