@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dhcxmigbcml7d"]
 
-[ext_resource type="Script" uid="uid://b4cl02nfa2kb3" path="res://scripts/supplies.gd" id="1_ew2gx"]
+[ext_resource type="Script" uid="uid://b4cl02nfa2kb3" path="res://scripts/enemies/supplies.gd" id="1_ew2gx"]
 [ext_resource type="Texture2D" uid="uid://bs8w3apdh1jwe" path="res://assets/supply.png" id="2_r2j0a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kc60j"]

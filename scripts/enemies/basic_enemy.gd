@@ -2,6 +2,7 @@ extends PathFollow2D
 
 @export var speed: float = 200.0
 @export var max_health: float = 100.0
+const is_supply: bool = false
 
 var current_health: float
 var is_falling: bool = false

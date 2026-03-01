@@ -53,6 +53,9 @@ func find_nearest_enemy() -> void:
 	for enemy in enemies:
 		if not is_instance_valid(enemy):
 			continue
+			
+		if enemy.is_supply:
+			continue
 
 		var distance = global_position.distance_to(enemy.global_position)
 
