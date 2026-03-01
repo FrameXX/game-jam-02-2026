@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://ds4od5a7cm1dw"]
+
+[ext_resource type="Script" uid="uid://b17y0kfi43u8g" path="res://scripts/settings_menu_canvas.gd" id="1_05p07"]
+[ext_resource type="Texture2D" uid="uid://c53uyo6v7h8mh" path="res://assets/buttons/button_back_menu.png" id="2_wswnh"]
+[ext_resource type="Texture2D" uid="uid://bte3jevqgtjde" path="res://assets/background2_mainmenu.png" id="3_labj1"]
+
+[node name="SettingsMenu" type="Node2D" unique_id=1960262847]
+
+[node name="SettingsMenuCanvas" type="CanvasLayer" parent="." unique_id=1806854481]
+script = ExtResource("1_05p07")
+
+[node name="SettingsMenuController" type="Control" parent="SettingsMenuCanvas" unique_id=1016357491]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back_to_menu_button" type="Button" parent="SettingsMenuCanvas/SettingsMenuController" unique_id=490838620]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7828125
+anchor_top = 0.79125005
+anchor_right = 0.9794423
+anchor_bottom = 0.91621107
+offset_left = 6.1035156e-05
+offset_right = 176.31384
+offset_bottom = 70.03119
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.4656163, 0.4656163)
+icon = ExtResource("2_wswnh")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="SettingsMenuCanvas" unique_id=1610885732]
+z_index = -2
+anchors_preset = -1
+anchor_right = 1.005131
+anchor_bottom = 1.2061563
+offset_right = -1233.2343
+offset_bottom = -924.925
+scale = Vector2(24.123127, 24.123127)
+mouse_filter = 2
+texture = ExtResource("3_labj1")
+expand_mode = 3
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="SettingsMenuCanvas/SettingsMenuController/back_to_menu_button" to="SettingsMenuCanvas" method="_on_back_to_menu_button_pressed"]

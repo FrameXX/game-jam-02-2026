@@ -2,7 +2,24 @@
 
 [ext_resource type="Script" uid="uid://ctnqft28rh3nj" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://btrv1p0wd82oh" path="res://assets/pitfall_spritesheet.png" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://ehaqviwdarf2" path="res://assets/buttons/button_play1.png" id="2_tbmy8"]
 [ext_resource type="Script" path="res://scripts/animated_sprite_2d.gd" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://bpx270gexm8nc" path="res://assets/buttons/button_options2.png" id="3_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://bfyrgjaeh87n8" path="res://assets/buttons/button_quit2.png" id="4_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://bte3jevqgtjde" path="res://assets/background2_mainmenu.png" id="5_tbmy8"]
+[ext_resource type="FontFile" uid="uid://bsyrrchcivp6v" path="res://assets/CoralPixels-Regular.ttf" id="6_lgwnu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbmy8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lgwnu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jk1qb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flqon"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dd4i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rcqid"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bqqt6"]
 atlas = ExtResource("2_ekxnf")
@@ -67,37 +84,51 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l6cm7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/ButtonControl" unique_id=72293200]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/ButtonControl" unique_id=1404458764]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.140625
-anchor_top = 0.41125
-anchor_right = 0.35390624
-anchor_bottom = 0.71125
+anchor_left = 0.1171875
+anchor_top = 0.5475
+anchor_right = 0.35353184
+anchor_bottom = 0.8484393
+offset_right = 16.479248
+offset_bottom = 182.2486
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.9483409, 0.56915224)
 theme_override_constants/separation = 20
 metadata/_edit_use_anchors_ = true
 
-[node name="Play" type="Button" parent="MenuCanvas/ButtonControl/VBoxContainer" unique_id=1310650645]
-custom_minimum_size = Vector2(0, 100)
+[node name="ButtonPlay" type="Button" parent="MenuCanvas/ButtonControl/VBoxContainer" unique_id=1896940142]
 layout_mode = 2
-size_flags_vertical = 3
-text = "Play"
-metadata/_edit_use_anchors_ = true
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tbmy8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lgwnu")
+icon = ExtResource("2_tbmy8")
 
-[node name="Settings" type="Button" parent="MenuCanvas/ButtonControl/VBoxContainer" unique_id=245989327]
-custom_minimum_size = Vector2(0, 50)
+[node name="ButtonSettings" type="Button" parent="MenuCanvas/ButtonControl/VBoxContainer" unique_id=14828862]
 layout_mode = 2
-size_flags_vertical = 3
-text = "Settings"
-metadata/_edit_use_anchors_ = true
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jk1qb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_flqon")
+icon = ExtResource("3_jk1qb")
 
-[node name="Quit" type="Button" parent="MenuCanvas/ButtonControl/VBoxContainer" unique_id=1812567097]
-custom_minimum_size = Vector2(0, 50)
+[node name="ButtonQuit" type="Button" parent="MenuCanvas/ButtonControl/VBoxContainer" unique_id=2031671259]
 layout_mode = 2
-size_flags_vertical = 3
-text = "Quit"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5dd4i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rcqid")
+icon = ExtResource("4_5dd4i")
+
+[node name="TextureRect" type="TextureRect" parent="MenuCanvas" unique_id=43545617]
+z_index = -2
+anchors_preset = -1
+anchor_right = 1.005131
+anchor_bottom = 1.2061563
+offset_right = -1233.2343
+offset_bottom = -924.925
+scale = Vector2(24.123127, 24.123127)
+mouse_filter = 2
+texture = ExtResource("5_tbmy8")
+expand_mode = 3
+stretch_mode = 6
 metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="MenuCanvas" unique_id=2142160628]
@@ -112,22 +143,25 @@ mouse_filter = 2
 [node name="Label" type="Label" parent="MenuCanvas/Control" unique_id=11685294]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.140625
-anchor_top = 0.105
-anchor_right = 0.91015625
-anchor_bottom = 0.31125
-theme_override_font_sizes/font_size = 100
-text = "FAULTY PITFALLS"
+anchor_left = 0.071875
+anchor_top = 0.04375
+anchor_right = 0.8414062
+anchor_bottom = 0.465
+scale = Vector2(0.89904344, 1.0516597)
+theme_override_fonts/font = ExtResource("6_lgwnu")
+theme_override_font_sizes/font_size = 120
+text = "FAULTY
+ PITFALLS"
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MenuCanvas/Control" unique_id=916645287]
-position = Vector2(860, 506)
+position = Vector2(923, 499)
 scale = Vector2(17.318598, 17.318598)
 sprite_frames = SubResource("SpriteFrames_jk1qb")
 animation = &"pitfall_animation"
 frame_progress = 0.63859123
 script = ExtResource("3_bqqt6")
 
-[connection signal="pressed" from="MenuCanvas/ButtonControl/VBoxContainer/Play" to="MenuCanvas/ButtonControl" method="_on_play_pressed"]
-[connection signal="pressed" from="MenuCanvas/ButtonControl/VBoxContainer/Settings" to="MenuCanvas/ButtonControl" method="_on_settings_pressed"]
-[connection signal="pressed" from="MenuCanvas/ButtonControl/VBoxContainer/Quit" to="MenuCanvas/ButtonControl" method="_on_quit_pressed"]
+[connection signal="pressed" from="MenuCanvas/ButtonControl/VBoxContainer/ButtonPlay" to="MenuCanvas/ButtonControl" method="_on_play_pressed"]
+[connection signal="pressed" from="MenuCanvas/ButtonControl/VBoxContainer/ButtonSettings" to="MenuCanvas/ButtonControl" method="_on_settings_pressed"]
+[connection signal="pressed" from="MenuCanvas/ButtonControl/VBoxContainer/ButtonQuit" to="MenuCanvas/ButtonControl" method="_on_quit_pressed"]
