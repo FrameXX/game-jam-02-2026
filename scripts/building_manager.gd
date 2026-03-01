@@ -1,19 +1,27 @@
 extends Node2D
-@export var tile_map: TileMap = null
+
+var tile_map: TileMap = null
 var selected_building_path: String = "" # Path to the PackedScene (.tscn)
+
+var can_build: bool = true
+func set_build_mode(active: bool):
+	can_build = active
+	# DO UI HERE
 
 func _ready():
 	GameEvents.building_selected.connect(_on_building_selected)
 
 func set_tile_map(new_map: TileMap):
 	tile_map = new_map
-	print("BuildingManager now using: ", tile_map.name)
+	print("BuildingManager now using: ", tile_map.get_path())
 
 func _on_building_selected(path: String):
 	selected_building_path = path
 	print("Manager received: ", path)
 
 func _unhandled_input(event: InputEvent):
+	if not can_build:
+		return
 	# 1. Check if we have something selected and the user clicked
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		print("Tile cliked.")

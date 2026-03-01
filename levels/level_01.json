@@ -1,19 +1,27 @@
 {
-  "level_id": "level_01",
-  "waves": [
-	{
-	  "wave_number": 1,
-	  "spawn_delay": 2.0,
-	  "enemies": [
-		{ "type": "basic", "count": 7, "interval": 0.3 },
-	  ]
-	},
-	{
-	  "wave_number": 2,
-	  "spawn_delay": 1.5,
-	  "enemies": [
-		{ "type": "basic", "count": 7, "interval": 0.1 }
-	  ]
-	}
-  ]
+	"level_id": "level_01",
+	"waves": [
+		{
+			"wave_number": 1.0,
+			"spawn_delay": 2.0,
+			"enemies": [
+				{
+					"type": "basic",
+					"count": 7.0,
+					"interval": 0.3
+				}
+			]
+		},
+		{
+			"wave_number": 2.0,
+			"spawn_delay": 1.5,
+			"enemies": [
+				{
+					"type": "basic",
+					"count": 7.0,
+					"interval": 0.1
+				}
+			]
+		}
+	]
 }

@@ -1,10 +1,11 @@
 extends Node2D
 
-@export var level_map_scene: PackedScene # Drag your Map.tscn here in the inspector
-
 func _ready():
 	# Instantiate the selected map
 	load_level(Global.selected_level)
+	$WaveManager.wave_finished.connect(_on_wave_finished)
+	$HUD/CanvasLayer/Control/Main.start_wave_pressed.connect(_on_hud_start_wave)
+	print("ready")
 
 func load_level(level_number: int):
 	# 1. Format the number to always be two digits (e.g., 1 becomes "01")
@@ -20,6 +21,10 @@ func load_level(level_number: int):
 		var map_instance = map_resource.instantiate()
 		add_child(map_instance)
 		
+		var new_tilemap = map_instance.find_child("TileMap")
+		if new_tilemap:
+			$BuildingManager.set_tile_map(new_tilemap)
+		
 		# 4. Perform the "Handshake" we discussed
 		var actual_path = map_instance.find_child("Path2D")
 		if actual_path:
@@ -27,6 +32,18 @@ func load_level(level_number: int):
 			$WaveManager.wave_file = json_path
 			$WaveManager.wave_data = $WaveManager.load_wave_data(json_path)
 			print("Loaded Level: ", level_number)
-			$WaveManager.start_wave(0)
+			
+		else:
+			printerr("Level not loaded correctly")
 	else:
 		printerr("Map file not found: ", map_path)
+
+func _on_wave_finished():
+	print("Entering Build Mode")
+	$BuildingManager.set_build_mode(true)
+	$HUD/CanvasLayer/Control/Main.show_start_button() # Show a button to manually start the next wave
+	
+func _on_hud_start_wave():
+	$BuildingManager.set_build_mode(false) # Lock building
+	$HUD/CanvasLayer.show_dialog("test")
+	$WaveManager.start_wave($WaveManager.current_wave_index)

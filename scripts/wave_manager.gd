@@ -1,6 +1,6 @@
 extends Node2D
 
-var wave_file: String = "res://levels/level_00.json"
+var wave_file: String
 var wave_data: Dictionary
 var current_wave_index: int = 0
 var path_node: Path2D # We will fill this from the outside
@@ -8,6 +8,8 @@ var path_node: Path2D # We will fill this from the outside
 func _ready():
 	pass
 	
+signal wave_finished
+
 func start_wave(index: int):
 	var waves = wave_data.get("waves", [])
 	if index >= waves.size():
@@ -19,14 +21,18 @@ func start_wave(index: int):
 
 	for enemy_group in current_wave["enemies"]:
 		await spawn_enemy_group(enemy_group)
-	var delay = current_wave.get("spawn_delay", 2.0)
-	print("Wave ", current_wave["wave_number"], " spawn complete. Waiting ", delay, "s...")
+		
+	while get_tree().get_nodes_in_group("enemies").size() > 0:
+		# Check again every half-second so we don't lag the game
+		await get_tree().create_timer(0.5).timeout
+		
+	wave_finished.emit()
+	current_wave_index += 1
 	
-	await get_tree().create_timer(delay).timeout
+	print("Wave ", current_wave["wave_number"], " spawn complete.")
+	
 	
 	# 4. Move to the next index and start again
-	current_wave_index += 1
-	start_wave(current_wave_index)
 
 func spawn_enemy_group(group: Dictionary):
 	# group["type"] -> "slime"
@@ -39,9 +45,10 @@ func spawn_enemy_group(group: Dictionary):
 	for i in range(group["count"]):
 		print("Spawning ", group["type"])
 		var current_enemy = load("res://scenes/enemies/" + group["type"] + ".tscn")
-#		
+		var enemy_instance = current_enemy.instantiate()
+		enemy_instance.add_to_group("enemies")
 #		# 4. Add the enemy as a child of the path
-		path_node.add_child(current_enemy.instantiate())
+		path_node.add_child(enemy_instance)
 		
 		# Insert your actual instantiation logic here (e.g., .instantiate())
 		await get_tree().create_timer(group["interval"]).timeout

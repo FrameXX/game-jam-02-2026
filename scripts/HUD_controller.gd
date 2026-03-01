@@ -9,8 +9,13 @@ func _ready():
 	panel.visible = false
 
 func show_dialog(text: String):
+	print("debug")
 	label.text = text
 	panel.visible = true
 
 func _on_cross_dialogue_button_pressed() -> void:
 	panel.visible = false
+
+
+func _on_start_pressed() -> void:
+	pass # Replace with function body.
