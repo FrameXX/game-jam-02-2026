@@ -48,6 +48,7 @@ func spawn_enemy_group(group: Dictionary):
 		var enemy_instance = current_enemy.instantiate()
 		enemy_instance.add_to_group("enemies")
 #		# 4. Add the enemy as a child of the path
+		enemy_instance.z_index = 10
 		path_node.add_child(enemy_instance)
 		
 		# Insert your actual instantiation logic here (e.g., .instantiate())
