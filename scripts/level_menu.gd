@@ -28,9 +28,14 @@ func _on_level1_pressed() -> void:
 func _on_level_2_pressed() -> void:
 	select_level(2)
 	
+func _on_level_3_pressed() -> void:
+	select_level(3)
+	
+	
 func select_level(level: int):
 	if Global.unlocked_level >= level:
 		Global.selected_level = level;
+		Global.gold = 100
 		get_tree().change_scene_to_file("res://scenes/game.tscn")
 	else:
 		show_dialog("Level not yet unlocked!\nFirst play level: " + str(Global.unlocked_level) + "!")

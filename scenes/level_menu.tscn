@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bncscpcnhb5yu" path="res://assets/map02.png" id="3_jqwib"]
 [ext_resource type="Texture2D" uid="uid://bte3jevqgtjde" path="res://assets/background2_mainmenu.png" id="4_7obll"]
 [ext_resource type="Texture2D" uid="uid://c53uyo6v7h8mh" path="res://assets/buttons/button_back_menu.png" id="4_teein"]
-[ext_resource type="Script" uid="uid://dvvipqgg6ghdc" path="res://scenes/level_dialog.gd" id="5_k08aj"]
+[ext_resource type="Script" path="res://scenes/level_dialog.gd" id="5_k08aj"]
 
 [node name="LevelMenu" type="Node2D" unique_id=1435029209]
 script = ExtResource("1_yl4fo")
@@ -73,7 +73,7 @@ texture = ExtResource("3_jqwib")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="level3_notworking" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1246492795]
+[node name="level3" type="Button" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer" unique_id=1246492795]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 text = "LEVEL 3"
@@ -149,4 +149,5 @@ stretch_mode = 6
 
 [connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level1" to="." method="_on_level1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/back_to_menu_button" to="." method="_on_back_to_menu_button_pressed"]
