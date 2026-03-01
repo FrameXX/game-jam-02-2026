@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dslgeh73hk4oc"]
+
+[ext_resource type="Script" uid="uid://3dp2fn7fpd5p" path="res://scripts/buildings/blaster_projectile.gd" id="1_projectile"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 5.0
+
+[node name="BlasterProjectile" type="Area2D" unique_id=1456516380]
+z_index = 20
+script = ExtResource("1_projectile")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=49000949]
+modulate = Color(1, 0.4, 0.8, 1)
+scale = Vector2(0.3, 0.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=296820463]
+shape = SubResource("CircleShape2D_1")

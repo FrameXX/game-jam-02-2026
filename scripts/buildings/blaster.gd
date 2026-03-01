@@ -1,18 +1,16 @@
 extends Node2D
 
 @export var needs_path: bool = false
-@export var damage: float = 25.0
+@export var damage: float = 64
 @export var attack_range: float = 150.0
-@export var attack_cooldown: float = 0.1
-@export var laser_duration: float = 0.15
+@export var attack_cooldown: float = 0.3
 
 @onready var head: Sprite2D = $Head
 @onready var base_sprite: Sprite2D = $Base
 
 var can_attack: bool = true
 var current_target: Node2D = null
-var is_firing_laser: bool = false
-var laser_target_position: Vector2 = Vector2.ZERO
+var projectile_scene: PackedScene = preload("res://scenes/buildings/blaster_projectile.tscn")
 
 func _ready() -> void:
 	add_to_group("buildings")
@@ -25,20 +23,6 @@ func _process(_delta: float) -> void:
 
 		if can_attack:
 			attack_target()
-
-func _draw() -> void:
-	if is_firing_laser and current_target:
-		var from = Vector2.ZERO
-		var to = to_local(laser_target_position)
-
-		# Draw glow layers (outer to inner)
-		draw_line(from, to, Color(1.0, 0.4, 0.7, 0.2), 8.0)
-		draw_line(from, to, Color(1.0, 0.4, 0.7, 0.4), 5.0)
-		draw_line(from, to, Color(1.0, 0.5, 0.8, 0.6), 3.0)
-		# Core laser (bright pink)
-		draw_line(from, to, Color(1.0, 0.4, 0.8, 1.0), 2.0)
-		# Inner bright core
-		draw_line(from, to, Color(1.0, 0.8, 0.9, 1.0), 1.0)
 
 func find_nearest_enemy() -> void:
 	var enemies = get_tree().get_nodes_in_group("enemies")
@@ -53,7 +37,7 @@ func find_nearest_enemy() -> void:
 	for enemy in enemies:
 		if not is_instance_valid(enemy):
 			continue
-			
+
 		if enemy.is_supply:
 			continue
 
@@ -80,32 +64,20 @@ func attack_target() -> void:
 	if not current_target:
 		return
 
-	# Check if target still has the take_damage method
-	if current_target.has_method("take_damage"):
-		print(damage)
-		current_target.take_damage(damage)
-		print("Blaster attacked enemy for ", damage, " damage!")
+	# Spawn projectile
+	var projectile = projectile_scene.instantiate()
+	get_tree().current_scene.add_child(projectile)
 
-		# Show laser effect
-		laser_target_position = current_target.global_position
-		show_laser()
+	# Set projectile position and target
+	projectile.global_position = global_position
+	projectile.set_target(current_target, damage)
 
-		# Start cooldown
-		can_attack = false
-		await get_tree().create_timer(attack_cooldown).timeout
-		can_attack = true
-	else:
-		# Target might have been destroyed, find a new one
-		current_target = null
+	print("Blaster fired projectile at enemy!")
 
-func show_laser() -> void:
-	is_firing_laser = true
-	queue_redraw()
-
-	await get_tree().create_timer(laser_duration).timeout
-
-	is_firing_laser = false
-	queue_redraw()
+	# Start cooldown
+	can_attack = false
+	await get_tree().create_timer(attack_cooldown).timeout
+	can_attack = true
 
 
 func _on_pressed() -> void:

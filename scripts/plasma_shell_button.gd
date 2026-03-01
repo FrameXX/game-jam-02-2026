@@ -1,6 +1,6 @@
 extends Button
 
-@export var cost = 50
+@export var cost = 60
 
 func _ready() -> void:
 	text = str(cost)
