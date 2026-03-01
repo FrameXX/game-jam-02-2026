@@ -7,8 +7,13 @@
 			"enemies": [
 				{
 					"type": "basic",
-					"count": 7.0,
+					"count": 3.0,
 					"interval": 0.3
+				},
+				{
+					"type": "basic",
+					"count": 9.0,
+					"interval": 0.1
 				}
 			]
 		},
@@ -17,11 +22,46 @@
 			"enemies": [
 				{
 					"type": "basic",
-					"count": 1.0,
+					"count": 5.0,
 					"interval": 0.3
+				},
+				{
+					"type": "basic",
+					"count": 10.0,
+					"interval": 0.2
+				}
+			]
+		},
+		{
+			"wave_number": 3.0,
+			"enemies": [
+				{
+					"type": "basic",
+					"count": 5.0,
+					"interval": 0.3
+				},
+				{
+					"type": "basic",
+					"count": 15.0,
+					"interval": 0.3
+				}
+			]
+		},
+		{
+			"wave_number": 4.0,
+			"enemies": [
+				{
+					"type": "basic",
+					"count": 10.0,
+					"interval": 0.3
+				},
+				{
+					"type": "basic",
+					"count": 15.0,
+					"interval": 0.1
 				}
 			]
 		}
 	],
-	"supplies": ["1, 2, 0", "2, 1, 0"]
+	"supplies": []
 }
