@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://dhhk1nqqic3uu"]
 
 [ext_resource type="Texture2D" uid="uid://d3i11uj4ri5q8" path="res://assets/blaster_base.png" id="1_4kp41"]
+[ext_resource type="Script" uid="uid://8obtqv6h5qsv" path="res://scripts/buildings/blaster.gd" id="1_xu4um"]
 [ext_resource type="Texture2D" uid="uid://c4y0xklmumldk" path="res://assets/blaster_head.png" id="2_xu4um"]
 
 [node name="Blaster" type="Node2D" unique_id=663519512]
+script = ExtResource("1_xu4um")
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1113259997]
 texture = ExtResource("1_4kp41")

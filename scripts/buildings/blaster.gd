@@ -106,3 +106,7 @@ func show_laser() -> void:
 
 	is_firing_laser = false
 	queue_redraw()
+
+
+func _on_pressed() -> void:
+	pass # Replace with function body.

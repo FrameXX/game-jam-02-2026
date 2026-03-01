@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://bash8iqglmmfh" path="res://scripts/plasma_shell_button.gd" id="7_hd3ao"]
 [ext_resource type="Script" uid="uid://b30ef8j5hc6tg" path="res://scripts/destroy_button.gd" id="8_destroy"]
 [ext_resource type="Texture2D" uid="uid://btntxoopyc1rl" path="res://assets/blaster.png" id="13_5n1hp"]
-[ext_resource type="Script" uid="uid://8obtqv6h5qsv" path="res://scripts/buildings/blaster.gd" id="14_eld54"]
+[ext_resource type="Script" uid="uid://blcuyx436h7wp" path="res://scripts/blaster_button.gd" id="14_eld54"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0m4u7"]
 bg_color = Color(0.30980393, 0.02745098, 0.05490196, 0.68235296)

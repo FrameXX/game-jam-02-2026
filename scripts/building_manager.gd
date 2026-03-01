@@ -14,6 +14,8 @@ func get_building_cost(path: String) -> int:
 		return 10
 	if path.contains("plasma_shell"):
 		return 50
+	if path.contains("blaster"):
+		return 60
 	return 0
 
 func set_build_mode(active: bool):
