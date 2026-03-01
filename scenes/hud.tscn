@@ -10,8 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://boqothr2fsb4j" path="res://assets/destroy_building.png" id="4_hd3ao"]
 [ext_resource type="Texture2D" uid="uid://cftcknf0vdfkj" path="res://assets/buttons/button_build.png" id="5_5n1hp"]
 [ext_resource type="Script" uid="uid://cvseh6wf04bii" path="res://scripts/hole_button.gd" id="5_5pdws"]
-[ext_resource type="Script" path="res://scripts/plasma_shell_button.gd" id="7_hd3ao"]
+[ext_resource type="Script" uid="uid://bash8iqglmmfh" path="res://scripts/plasma_shell_button.gd" id="7_hd3ao"]
 [ext_resource type="Script" uid="uid://b30ef8j5hc6tg" path="res://scripts/destroy_button.gd" id="8_destroy"]
+[ext_resource type="Texture2D" uid="uid://btntxoopyc1rl" path="res://assets/blaster.png" id="13_5n1hp"]
+[ext_resource type="Script" uid="uid://8obtqv6h5qsv" path="res://scripts/buildings/blaster.gd" id="14_eld54"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0m4u7"]
 bg_color = Color(0.30980393, 0.02745098, 0.05490196, 0.68235296)
@@ -168,12 +170,14 @@ metadata/_edit_use_anchors_ = true
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Building" unique_id=1415732554]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.083333336
-anchor_top = 0.0054945056
-anchor_right = 0.96805453
-anchor_bottom = 0.17446433
-offset_right = -2.4666176
-offset_bottom = -127.01003
+anchor_left = -0.041104108
+anchor_top = -0.0027472489
+anchor_right = 0.99761254
+anchor_bottom = -0.0009605701
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 84.0
 grow_horizontal = 2
 scale = Vector2(1.0616654, 1.5376254)
 metadata/_edit_use_anchors_ = true
@@ -198,6 +202,15 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 script = ExtResource("7_hd3ao")
+
+[node name="Blaster" type="Button" parent="CanvasLayer/Control/Building/MarginContainer/HBoxContainer" unique_id=1494676434]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+icon = ExtResource("13_5n1hp")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("14_eld54")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=1306409436]
 layout_mode = 1
@@ -234,3 +247,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="CanvasLayer/Control/Building/DestroyButton" to="CanvasLayer" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/Hole" to="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/Hole" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/PlasmaShell" to="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/PlasmaShell" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/Blaster" to="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/Blaster" method="_on_pressed"]
