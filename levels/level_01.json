@@ -6,20 +6,20 @@
 			"spawn_delay": 2.0,
 			"enemies": [
 				{
-					"type": "basic",
+					"type": "supplies",
 					"count": 7.0,
 					"interval": 0.3
 				}
 			]
-		},
+		},		
 		{
 			"wave_number": 2.0,
-			"spawn_delay": 1.5,
+			"spawn_delay": 2.0,
 			"enemies": [
 				{
-					"type": "basic",
-					"count": 7.0,
-					"interval": 0.1
+					"type": "supplies",
+					"count": 1.0,
+					"interval": 0.3
 				}
 			]
 		}

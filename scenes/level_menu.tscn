@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bncscpcnhb5yu" path="res://assets/map02.png" id="3_jqwib"]
 [ext_resource type="Texture2D" uid="uid://bte3jevqgtjde" path="res://assets/background2_mainmenu.png" id="4_7obll"]
 [ext_resource type="Texture2D" uid="uid://c53uyo6v7h8mh" path="res://assets/buttons/button_back_menu.png" id="4_teein"]
+[ext_resource type="Script" uid="uid://dvvipqgg6ghdc" path="res://scenes/level_dialog.gd" id="5_k08aj"]
 
 [node name="LevelMenu" type="Node2D" unique_id=1435029209]
 script = ExtResource("1_yl4fo")
@@ -105,6 +106,35 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.4656163, 0.4656163)
 icon = ExtResource("4_teein")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=61083087]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -72.0
+offset_right = 128.0
+offset_bottom = -8.0
+script = ExtResource("5_k08aj")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Panel" unique_id=312744251]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=394519138]

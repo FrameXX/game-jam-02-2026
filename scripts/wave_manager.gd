@@ -12,9 +12,6 @@ signal wave_finished
 
 func start_wave(index: int):
 	var waves = wave_data.get("waves", [])
-	if index >= waves.size():
-		print("All waves complete!")
-		return
 
 	var current_wave = waves[index]
 	print("Starting Wave: ", current_wave["wave_number"])
@@ -31,6 +28,12 @@ func start_wave(index: int):
 	
 	print("Wave ", current_wave["wave_number"], " spawn complete.")
 	
+	if current_wave_index >= waves.size():
+		$"../HUD/CanvasLayer".show_dialog("You won!")
+		await get_tree().create_timer(1.5).timeout
+		if Global.unlocked_level == Global.selected_level:
+			Global.unlocked_level += 1
+		get_tree().change_scene_to_file("res://scenes/level_menu.tscn")
 	
 	# 4. Move to the next index and start again
 

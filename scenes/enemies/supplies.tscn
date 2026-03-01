@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dhcxmigbcml7d"]
+
+[ext_resource type="Script" uid="uid://b4cl02nfa2kb3" path="res://scripts/supplies.gd" id="1_ew2gx"]
+[ext_resource type="Texture2D" uid="uid://bs8w3apdh1jwe" path="res://assets/supply.png" id="2_r2j0a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kc60j"]
+size = Vector2(10, 10)
+
+[node name="BasicEnemyPathFollow" type="PathFollow2D" unique_id=792703532]
+z_index = 1
+loop = false
+script = ExtResource("1_ew2gx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1256431635]
+texture = ExtResource("2_r2j0a")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2014464727]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=250282573]
+shape = SubResource("RectangleShape2D_kc60j")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_trap_detector_area_entered"]
