@@ -91,7 +91,7 @@ func place_building():
 	building.z_index = 10
 	if building.needs_path == true:
 			var is_path_tile = data.get_custom_data("is_path")
-			print(is_path_tile)
+			print(str(cell_pos) + " is path tile: " + str(is_path_tile))
 			if is_path_tile != true:
 				can_place_here = false
 				print("PLACEMENT BLOCKED: Not a path tile.")
