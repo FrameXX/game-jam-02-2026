@@ -3,8 +3,19 @@
 [ext_resource type="Script" uid="uid://dcaf4768gwmsn" path="res://scripts/buildings/hole.gd" id="1_f8j7q"]
 [ext_resource type="Texture2D" uid="uid://dkb8u1iwcskbh" path="res://assets/hole.png" id="1_lerre"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8j7q"]
+size = Vector2(10, 9)
+
 [node name="Hole" type="Node2D" unique_id=1666798034]
 script = ExtResource("1_f8j7q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=489870590]
 texture = ExtResource("1_lerre")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1571034533]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=164569882]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_f8j7q")
