@@ -7,6 +7,12 @@ func _ready():
 	panel = $CanvasLayer/Control/Panel
 	label = $CanvasLayer/Control/Panel/Label
 	panel.visible = false
+	if Global.unlocked_level >= 1:
+		$CanvasLayer/Control/ScrollContainer/HBoxContainer/level1/TextureRectMap.visible = true
+	if Global.unlocked_level >= 2:
+		$CanvasLayer/Control/ScrollContainer/HBoxContainer/level2/TextureRectMap.visible = true
+	if Global.unlocked_level >= 3:
+		$CanvasLayer/Control/ScrollContainer/HBoxContainer/level3/TextureRectMap.visible = true
 
 func show_dialog(text: String):
 	print("Showing dialog:", text)
@@ -31,6 +37,14 @@ func _on_level_2_pressed() -> void:
 func _on_level_3_pressed() -> void:
 	select_level(3)
 	
+func _on_level_4_pressed() -> void:
+	show_dialog("Coming soon!")	
+	
+func _on_level_5_pressed() -> void:
+	show_dialog("Coming soon!")	
+	
+func _on_level_6_pressed() -> void:
+	show_dialog("Coming soon!")	
 	
 func select_level(level: int):
 	if Global.unlocked_level >= level:

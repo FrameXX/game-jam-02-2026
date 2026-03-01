@@ -90,7 +90,7 @@ icon = ExtResource("3_u0fjm")
 flat = true
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer/level3" unique_id=2109807520]
+[node name="TextureRectMap" type="TextureRect" parent="CanvasLayer/Control/ScrollContainer/HBoxContainer/level3" unique_id=2109807520]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -206,4 +206,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level1" to="." method="_on_level1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level4_notworking" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level5_notworking" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ScrollContainer/HBoxContainer/level6_notworking" to="." method="_on_level_6_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/back_to_menu_button" to="." method="_on_back_to_menu_button_pressed"]
