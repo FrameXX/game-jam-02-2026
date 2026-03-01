@@ -44,7 +44,7 @@ func take_damage(amount: float):
 
 func die():
 	Global.gold += 10
-	$"../../../../HUD/CanvasLayer/Control/Main/Gold".text = "Gold: " + str(Global.gold)
+	$"../../../../HUD/CanvasLayer/Control/Main/Gold".text = str(Global.gold)
 	emit_signal("died", self)
 	queue_free()
 

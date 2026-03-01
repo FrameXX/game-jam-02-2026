@@ -1,6 +1,6 @@
 extends Panel
 
-@onready var gold_label: Label = $"../Main/Gold"
+@onready var gold_label: Button = $"../Main/Gold"
 
 signal start_wave_pressed
 signal build_mode_toggled(is_active)
@@ -15,8 +15,8 @@ func _on_start_pressed():
 
 func _on_button_pressed_plus_10() -> void:
 	Global.gold += 10
-	gold_label.text = "Gold: " + str(Global.gold)
-	
+	gold_label.text = str(Global.gold)
+
 func show_start_button():
 	$%Start.show()
 

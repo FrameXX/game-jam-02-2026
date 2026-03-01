@@ -68,7 +68,7 @@ func fall_into_hole():
 
 func reached_end():
 	Global.gold += 100
-	$"../../../../HUD/CanvasLayer/Control/Main/Gold".text = "Gold: " + str(Global.gold)
+	$"../../../../HUD/CanvasLayer/Control/Main/Gold".text = str(Global.gold)
 	$"../../../../HUD/CanvasLayer".show_dialog("Supplies reached FEL! :-)")
 	queue_free()
 	# Damage the base when enemy reaches the end

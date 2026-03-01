@@ -177,9 +177,9 @@ func place_building():
 		Global.gold -= cost
 
 		# Update UI
-		var gold_label: Label = $"../HUD/CanvasLayer/Control/Main/Gold"
+		var gold_label: Button = $"../HUD/CanvasLayer/Control/Main/Gold"
 		if gold_label:
-			gold_label.text = "Gold: " + str(Global.gold)
+			gold_label.text = str(Global.gold)
 
 		# Finalize Placement
 		var center_pos = tile_map.map_to_local(cell_pos)
