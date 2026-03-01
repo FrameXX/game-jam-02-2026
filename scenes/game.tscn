@@ -34,6 +34,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.5466945, 0.16986325, 0.13984683, 1)
+color = Color(0.4310832, 0.05987683, 0.10541903, 1)
 
 [connection signal="timeout" from="WaveManager/Timer" to="WaveManager" method="_on_timer_timeout"]
