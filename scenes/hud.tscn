@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dkb8u1iwcskbh" path="res://assets/hole.png" id="3_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://v4hoc1oxqg63" path="res://assets/plasma_shell.png" id="4_6fi6k"]
 [ext_resource type="Script" uid="uid://cvseh6wf04bii" path="res://scripts/hole_button.gd" id="5_5pdws"]
-[ext_resource type="Texture2D" uid="uid://ej3wua1cthrx" path="res://assets/cross_button.png" id="6_047uy"]
 [ext_resource type="Script" uid="uid://bash8iqglmmfh" path="res://scripts/plasma_shell_button.gd" id="7_hd3ao"]
 
 [sub_resource type="GDScript" id="GDScript_5ysmq"]
@@ -22,12 +21,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 "
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_047uy"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pdws"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hd3ao"]
 
 [node name="Node2D" type="Node2D" unique_id=693319808]
 
@@ -177,40 +170,13 @@ offset_right = -8.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="CrossDialogueButton" type="Button" parent="CanvasLayer/Control/Panel" unique_id=163734659]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -32.0
-offset_right = -16.0
-offset_bottom = 16.0
-grow_horizontal = 0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_047uy")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_5pdws")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_hd3ao")
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Panel/CrossDialogueButton" unique_id=381637376]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 14.0
-offset_top = 1.0
-offset_right = 14.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_047uy")
-expand_mode = 2
-stretch_mode = 6
 
 [connection signal="pressed" from="CanvasLayer/Control/Main/MarginContainer/HBoxContainer/Start" to="CanvasLayer/Control/Main" method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Main/MarginContainer/HBoxContainer/Build" to="CanvasLayer/Control/Building" method="_on_build_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/Button" to="CanvasLayer/Control/Main" method="_on_button_pressed_plus_10"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/Hole" to="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/Hole" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/PlasmaShell" to="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/PlasmaShell" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Panel/CrossDialogueButton" to="CanvasLayer" method="_on_cross_dialogue_button_pressed"]

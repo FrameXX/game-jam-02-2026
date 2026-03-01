@@ -67,8 +67,8 @@ func fall_into_hole():
 
 func reached_end():
 	print("U ded")
-	$"../../../../HUD/CanvasLayer".show_dialog("U ded\nReturning to level selector")
-	await get_tree().create_timer(2.0).timeout 
+	$"../../../../HUD/CanvasLayer".show_dialog("FEL was destroyed! :(\nReturning to level selector.")
+	await get_tree().create_timer(2.0).timeout
 	Global.base_health -= 10
 	get_tree().change_scene_to_file("res://scenes/level_menu.tscn")
 	queue_free()

@@ -9,9 +9,11 @@ func _ready():
 	panel.visible = false
 
 func show_dialog(text: String):
-	print("debug")
+	print("Showing dialog:", text)
 	label.text = text
 	panel.visible = true
+	await get_tree().create_timer(3.0).timeout
+	panel.visible = false
 
 func _on_cross_dialogue_button_pressed() -> void:
 	panel.visible = false
