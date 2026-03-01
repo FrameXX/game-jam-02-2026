@@ -4,8 +4,8 @@ var panel
 var label
 
 func _ready():
-	panel = $Panel
-	label = $Panel/Label
+	panel = $Control/Panel
+	label = $Control/Panel/Label
 	panel.visible = false
 
 func show_dialog(text: String):

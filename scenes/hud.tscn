@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cftgkr22fkpxd"]
 
-[ext_resource type="Script" path="res://scripts/HUD_controller.gd" id="1_5pdws"]
+[ext_resource type="Script" uid="uid://m55mfcpgya63" path="res://scripts/HUD_controller.gd" id="1_5pdws"]
 [ext_resource type="Script" uid="uid://du0kpq5p75cmj" path="res://scripts/building_panel.gd" id="1_ahhtf"]
 [ext_resource type="Script" uid="uid://ccqoof8sts1n4" path="res://scripts/main_hud_panel.gd" id="1_oo0fn"]
 [ext_resource type="Texture2D" uid="uid://dkb8u1iwcskbh" path="res://assets/hole.png" id="3_5ysmq"]
@@ -154,48 +154,54 @@ vertical_icon_alignment = 0
 expand_icon = true
 script = ExtResource("7_hd3ao")
 
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1306409436]
-anchors_preset = 7
+[node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=1306409436]
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -221.0
-offset_top = -119.99994
-offset_right = -181.0
-offset_bottom = -79.99994
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(10.92, 2.28)
+offset_left = -128.0
+offset_top = -72.0
+offset_right = 128.0
+offset_bottom = -8.0
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=863438566]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Panel" unique_id=863438566]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="CrossDialogueButton" type="Button" parent="CanvasLayer/Panel" unique_id=163734659]
-layout_mode = 0
-anchor_left = 0.8928572
-anchor_top = -0.098684885
-anchor_right = 1.0252364
-anchor_bottom = 0.49858642
-offset_right = 2.704834
-offset_bottom = -15.890852
-scale = Vector2(0.6618955, 2.9863565)
+[node name="CrossDialogueButton" type="Button" parent="CanvasLayer/Control/Panel" unique_id=163734659]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_right = -16.0
+offset_bottom = 16.0
+grow_horizontal = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_047uy")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_5pdws")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_hd3ao")
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/CrossDialogueButton" unique_id=381637376]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Panel/CrossDialogueButton" unique_id=381637376]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 1.0
+offset_right = 14.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_047uy")
@@ -207,4 +213,4 @@ stretch_mode = 6
 [connection signal="pressed" from="CanvasLayer/Control/Building/Button" to="CanvasLayer/Control/Main" method="_on_button_pressed_plus_10"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/Hole" to="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/Hole" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/PlasmaShell" to="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/PlasmaShell" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/Panel/CrossDialogueButton" to="CanvasLayer" method="_on_cross_dialogue_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/CrossDialogueButton" to="CanvasLayer" method="_on_cross_dialogue_button_pressed"]
