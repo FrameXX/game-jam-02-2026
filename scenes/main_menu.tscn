@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ctnqft28rh3nj" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://btrv1p0wd82oh" path="res://assets/pitfall_spritesheet.png" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://ehaqviwdarf2" path="res://assets/buttons/button_play1.png" id="2_tbmy8"]
-[ext_resource type="Script" path="res://scripts/animated_sprite_2d.gd" id="3_bqqt6"]
+[ext_resource type="Script" uid="uid://blqdfvfd578ym" path="res://scripts/animated_sprite_2d.gd" id="3_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://bpx270gexm8nc" path="res://assets/buttons/button_options2.png" id="3_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://bfyrgjaeh87n8" path="res://assets/buttons/button_quit2.png" id="4_5dd4i"]
 [ext_resource type="Texture2D" uid="uid://bte3jevqgtjde" path="res://assets/background2_mainmenu.png" id="5_tbmy8"]
