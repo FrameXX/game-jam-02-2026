@@ -3,7 +3,7 @@ extends Node2D
 var wave_file: String
 var wave_data: Dictionary
 var current_wave_index: int = 0
-var path_node: Path2D # We will fill this from the outside
+var tile_map: TileMap # We will fill this from the outside
 
 func _ready():
 	pass
@@ -41,13 +41,28 @@ func spawn_enemy_group(group: Dictionary):
 	# group["type"] -> "slime"
 	# group["count"] -> 5
 	# group["interval"] -> 1.0
-	if not path_node:
+	if not tile_map:
 		printerr("WaveManager Error: No Path2D assigned!")
 		return
+	var path_idx = group.get("path_id", 0) 
+	var paths_list = wave_data.get("paths", [])
+	
+	if paths_list.size() <= path_idx:
+		printerr("WaveManager Error: Path index ", path_idx, " not found in JSON 'paths'!")
+		return
 		
+	var path_node_name = paths_list[path_idx]	
+	var path_node = tile_map.find_child(path_node_name)
+	if not path_node:
+		printerr("WaveManager Error: Could not find a child named ", path_node_name, " inside TileMap!")
+		return
+	var enemy_scene = load("res://scenes/enemies/" + group["type"] + ".tscn")	
 	for i in range(group["count"]):
 		print("Spawning ", group["type"])
 		var current_enemy = load("res://scenes/enemies/" + group["type"] + ".tscn")
+	# 3. Instantiate and Add
+		var enemy = enemy_scene.instantiate()
+		path_node.add_child(enemy) # The enemy (PathFollow2D) is now on the correct track
 		var enemy_instance = current_enemy.instantiate()
 		enemy_instance.add_to_group("enemies")
 #		# 4. Add the enemy as a child of the path

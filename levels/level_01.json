@@ -1,9 +1,9 @@
 {
 	"level_id": "level_01",
+	"paths": ["Path2D"],
 	"waves": [
 		{
 			"wave_number": 1.0,
-			"spawn_delay": 2.0,
 			"enemies": [
 				{
 					"type": "supplies",
@@ -14,7 +14,6 @@
 		},
 		{
 			"wave_number": 2.0,
-			"spawn_delay": 2.0,
 			"enemies": [
 				{
 					"type": "supplies",

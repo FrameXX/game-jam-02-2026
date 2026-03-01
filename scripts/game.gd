@@ -25,16 +25,12 @@ func load_level(level_number: int):
 		if new_tilemap:
 			$BuildingManager.set_tile_map(new_tilemap)
 
-		# 4. Perform the "Handshake" we discussed
-		var actual_path = map_instance.find_child("Path2D")
-		if actual_path:
-			$WaveManager.path_node = actual_path
-			$WaveManager.wave_file = json_path
-			$WaveManager.wave_data = $WaveManager.load_wave_data(json_path)
-			print("Loaded Level: ", level_number)
+	# 4. Perform the "Handshake" we discussed
+		$WaveManager.tile_map = new_tilemap
+		$WaveManager.wave_file = json_path
+		$WaveManager.wave_data = $WaveManager.load_wave_data(json_path)
+		print("Loaded Level: ", level_number)
 
-		else:
-			printerr("Level not loaded correctly")
 	else:
 		printerr("Map file not found: ", map_path)
 

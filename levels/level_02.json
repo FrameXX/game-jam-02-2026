@@ -1,5 +1,6 @@
 {
   "level_id": "level_02",
+"paths": ["Path2D"],
   "waves": [
 	{
 	  "wave_number": 1,
