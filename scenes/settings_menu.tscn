@@ -3,6 +3,17 @@
 [ext_resource type="Script" uid="uid://b17y0kfi43u8g" path="res://scripts/settings_menu_canvas.gd" id="1_05p07"]
 [ext_resource type="Texture2D" uid="uid://c53uyo6v7h8mh" path="res://assets/buttons/button_back_menu.png" id="2_wswnh"]
 [ext_resource type="Texture2D" uid="uid://bte3jevqgtjde" path="res://assets/background2_mainmenu.png" id="3_labj1"]
+[ext_resource type="FontFile" uid="uid://bsyrrchcivp6v" path="res://assets/CoralPixels-Regular.ttf" id="3_lwwgp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wswnh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_labj1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgjg7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48ojb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lwwgp"]
 
 [node name="SettingsMenu" type="Node2D" unique_id=1960262847]
 
@@ -30,8 +41,42 @@ offset_bottom = 70.03119
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.4656163, 0.4656163)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wswnh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_labj1")
 icon = ExtResource("2_wswnh")
 metadata/_edit_use_anchors_ = true
+
+[node name="easter_egg_button" type="Button" parent="SettingsMenuCanvas/SettingsMenuController" unique_id=490933490]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08671875
+anchor_top = 0.31375
+anchor_right = 0.47966987
+anchor_bottom = 0.40426636
+offset_right = -245.97742
+offset_bottom = -35.413086
+grow_vertical = 2
+scale = Vector2(1.9571105, 1.9571105)
+theme_override_fonts/font = ExtResource("3_lwwgp")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bgjg7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_48ojb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lwwgp")
+text = "Nothing to see here..."
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SettingsMenuCanvas/SettingsMenuController" unique_id=443279099]
+visible = false
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 175.0
+offset_top = 335.0
+offset_right = 215.0
+offset_bottom = 375.0
+bbcode_enabled = true
+text = "
+[font=res://assets/CoralPixels-Regular.ttf]Really [/font]"
+fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="SettingsMenuCanvas" unique_id=1610885732]
 z_index = -2
@@ -48,3 +93,4 @@ stretch_mode = 6
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="SettingsMenuCanvas/SettingsMenuController/back_to_menu_button" to="SettingsMenuCanvas" method="_on_back_to_menu_button_pressed"]
+[connection signal="pressed" from="SettingsMenuCanvas/SettingsMenuController/easter_egg_button" to="SettingsMenuCanvas" method="_on_easter_egg_button_pressed"]
