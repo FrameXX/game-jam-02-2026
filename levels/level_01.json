@@ -6,7 +6,7 @@
 			"wave_number": 1.0,
 			"enemies": [
 				{
-					"type": "supplies",
+					"type": "basic",
 					"count": 7.0,
 					"interval": 0.3
 				}
@@ -16,11 +16,12 @@
 			"wave_number": 2.0,
 			"enemies": [
 				{
-					"type": "supplies",
+					"type": "basic",
 					"count": 1.0,
 					"interval": 0.3
 				}
 			]
 		}
-	]
+	],
+	"supplies": ["1, 2, 0", "2, 1, 0"]
 }

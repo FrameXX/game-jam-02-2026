@@ -6,18 +6,19 @@
 			"wave_number": 1.0,
 			"enemies": [
 				{
-					"type": "supplies",
+					"type": "basic",
 					"count": 1.0,
 					"interval": 0.3,
 					"path_id": 0 
 				},
 				{
-					"type": "supplies",
+					"type": "basic",
 					"count": 1.0,
 					"interval": 0.3,
 					"path_id": 1 
 				}
 			]
 		}
-	]
+	],
+	"supplies": ["1, 2, 0", "2, 1, 1"]
 }
