@@ -42,8 +42,9 @@ func _on_wave_finished():
 	print("Entering Build Mode")
 	$BuildingManager.set_build_mode(true)
 	$HUD/CanvasLayer/Control/Main.show_start_button() # Show a button to manually start the next wave
-	
+	$HUD/CanvasLayer/Control/Main.show_build_button() # Show a button to manually start the next wave
+
 func _on_hud_start_wave():
 	$BuildingManager.set_build_mode(false) # Lock building
-	$HUD/CanvasLayer.show_dialog("test")
+	$HUD/CanvasLayer.show_dialog("Starting new wave")
 	$WaveManager.start_wave($WaveManager.current_wave_index)
