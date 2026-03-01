@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://mftswgtb041y" path="res://scripts/buildings/plasma_shell.gd" id="1_0lt4w"]
 [ext_resource type="Texture2D" uid="uid://scm7df3r4pho" path="res://assets/plasma_shell_base.png" id="1_ho25h"]
 [ext_resource type="Texture2D" uid="uid://bal20b8mfrgxu" path="res://assets/plasma_shell_head.png" id="2_ho25h"]
+[ext_resource type="AudioStream" uid="uid://cnkpdph3e6tm5" path="res://assets/sounds/laser.mp3" id="4_ce4a4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plasma"]
 size = Vector2(16, 16)
@@ -24,3 +25,6 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=164570123]
 shape = SubResource("RectangleShape2D_plasma")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1995791195]
+stream = ExtResource("4_ce4a4")

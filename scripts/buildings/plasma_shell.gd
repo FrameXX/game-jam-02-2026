@@ -88,6 +88,7 @@ func attack_target() -> void:
 
 		# Show laser effect
 		laser_target_position = current_target.global_position
+		$AudioStreamPlayer2D.play()
 		show_laser()
 
 		# Start cooldown
