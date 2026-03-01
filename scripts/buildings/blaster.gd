@@ -6,8 +6,8 @@ extends Node2D
 @export var attack_cooldown: float = 0.1
 @export var laser_duration: float = 0.15
 
-@onready var head: Sprite2D = $Sprite2D/Head
-@onready var base_sprite: Sprite2D = $Sprite2D/Base
+@onready var head: Sprite2D = $Head
+@onready var base_sprite: Sprite2D = $Base
 
 var can_attack: bool = true
 var current_target: Node2D = null
