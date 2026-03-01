@@ -95,7 +95,7 @@ offset_right = 16.479248
 offset_bottom = 182.2486
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.9483409, 0.56915224)
+scale = Vector2(0.8227188, 0.56577814)
 theme_override_constants/separation = 20
 metadata/_edit_use_anchors_ = true
 
