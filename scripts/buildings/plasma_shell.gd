@@ -74,7 +74,7 @@ func rotate_toward_target() -> void:
 	var angle = direction.angle()
 
 	# Rotate the head to face the target
-	head.rotation = angle
+	head.rotation = angle + deg_to_rad(90)
 
 func attack_target() -> void:
 	if not current_target:
