@@ -142,6 +142,13 @@ func place_building():
 		if is_path_tile != true:
 			print("NOT A PATH, CANNOT PLACE")
 			can_place_here = false
+	else:
+		var is_path_tile = data.get_custom_data("is_path")
+		if is_path_tile == true:
+			print("A PATH, CANNOT PLACE")
+			can_place_here = false
+
+		pass
 
 	if can_place_here:
 		# Deduct Gold
