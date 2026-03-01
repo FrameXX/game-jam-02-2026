@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://scm7df3r4pho" path="res://assets/plasma_shell_base.png" id="1_ho25h"]
 [ext_resource type="Texture2D" uid="uid://bal20b8mfrgxu" path="res://assets/plasma_shell_head.png" id="2_ho25h"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plasma"]
+size = Vector2(16, 16)
+
 [node name="PlasmaShell" type="Node2D" unique_id=1104062282]
 script = ExtResource("1_0lt4w")
 
@@ -14,3 +17,10 @@ texture = ExtResource("1_ho25h")
 
 [node name="Head" type="Sprite2D" parent="Sprite2D" unique_id=731570549]
 texture = ExtResource("2_ho25h")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1571035555]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=164570123]
+shape = SubResource("RectangleShape2D_plasma")

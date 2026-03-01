@@ -6,6 +6,8 @@ var ghost_building: Node2D = null
 var current_building_resource: PackedScene = null
 
 var can_build: bool = true
+var destroy_mode: bool = false
+var hovered_building: Node2D = null
 
 func get_building_cost(path: String) -> int:
 	if path.contains("hole"):
@@ -19,6 +21,7 @@ func set_build_mode(active: bool):
 
 func _ready():
 	GameEvents.building_selected.connect(_on_building_selected)
+	GameEvents.destroy_mode_toggled.connect(_on_destroy_mode_toggled)
 	ghost_building = Node2D.new()
 	ghost_building.z_index = 10
 	ghost_building.hide()
@@ -26,6 +29,18 @@ func _ready():
 
 func set_tile_map(new_map: TileMap):
 	tile_map = new_map
+
+func _on_destroy_mode_toggled(is_active: bool):
+	destroy_mode = is_active
+	if is_active:
+		# Clear building selection when entering destroy mode
+		selected_building_path = ""
+		for child in ghost_building.get_children():
+			child.queue_free()
+		ghost_building.hide()
+	else:
+		# Clear hover highlight when exiting destroy mode
+		_clear_hover_highlight()
 
 func _on_building_selected(path: String):
 	print("Building selected: ", path)
@@ -76,6 +91,10 @@ func disable_all_collisions(node: Node) -> void:
 		disable_all_collisions(child)
 
 func _process(_delta):
+	if destroy_mode:
+		_handle_destroy_mode_hover()
+		return
+
 	if not can_build or selected_building_path == "" or not tile_map:
 		ghost_building.hide()
 		return
@@ -109,9 +128,12 @@ func _process(_delta):
 		ghost_building.modulate = Color(1, 0, 0, 0.5)
 
 func _input(event: InputEvent):
-	if not can_build:
-		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if destroy_mode:
+			_try_destroy_building()
+			return
+		if not can_build:
+			return
 		if selected_building_path != "":
 			place_building()
 
@@ -170,3 +192,52 @@ func place_building():
 		ghost_building.hide()
 	else:
 		building.queue_free()
+
+func _handle_destroy_mode_hover():
+	# Use physics query to find building under mouse cursor
+	var mouse_pos = get_global_mouse_position()
+	var space_state = get_world_2d().direct_space_state
+
+	# Query for areas at mouse position (buildings use Area2D for collision)
+	var query = PhysicsPointQueryParameters2D.new()
+	query.position = mouse_pos
+	query.collision_mask = 0xFFFFFFFF  # Check all layers
+	query.collide_with_areas = true
+	query.collide_with_bodies = false
+
+	var results = space_state.intersect_point(query)
+
+	var new_hovered_building: Node2D = null
+
+	# Find the first building in results
+	for result in results:
+		var collider = result.get("collider")
+		if collider:
+			# Check if the collider or its parent is a building
+			var building_node = collider
+			if collider is Area2D:
+				building_node = collider.get_parent()
+
+			if building_node and building_node.is_in_group("buildings"):
+				new_hovered_building = building_node
+				break
+
+	# Update hover highlight
+	if new_hovered_building != hovered_building:
+		_clear_hover_highlight()
+		hovered_building = new_hovered_building
+		if hovered_building:
+			hovered_building.modulate = Color(1, 0.3, 0.3)  # Red tint
+
+func _clear_hover_highlight():
+	if hovered_building and is_instance_valid(hovered_building):
+		hovered_building.modulate = Color(1, 1, 1)
+	hovered_building = null
+
+func _try_destroy_building():
+	if hovered_building and is_instance_valid(hovered_building):
+		print("Destroying building!")
+		hovered_building.queue_free()
+		hovered_building = null
+		# Exit destroy mode after destroying
+		GameEvents.destroy_mode_toggled.emit(false)

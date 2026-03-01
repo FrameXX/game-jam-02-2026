@@ -21,3 +21,11 @@ func _on_cross_dialogue_button_pressed() -> void:
 
 func _on_start_pressed() -> void:
 	pass # Replace with function body.
+
+
+func _on_destroy_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_pressed() -> void:
+	pass # Replace with function body.

@@ -7,6 +7,7 @@ var enemies_fallen: int = 0
 @onready var area: Area2D = $Area2D
 
 func _ready() -> void:
+	add_to_group("buildings")
 	if area:
 		area.body_entered.connect(_on_body_entered)
 		area.area_entered.connect(_on_area_entered)
@@ -16,9 +17,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		register_enemy_fallen()
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(entered_area: Area2D) -> void:
 	# Check if the area belongs to an enemy
-	var parent = area.get_parent()
+	var parent = entered_area.get_parent()
 	if parent and parent.is_in_group("enemies"):
 		register_enemy_fallen()
 

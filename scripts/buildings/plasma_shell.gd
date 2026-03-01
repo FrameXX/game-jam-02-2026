@@ -15,9 +15,9 @@ var is_firing_laser: bool = false
 var laser_target_position: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
-	pass
+	add_to_group("buildings")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	find_nearest_enemy()
 
 	if current_target:
