@@ -4,12 +4,15 @@ extends Node2D
 @export var damage: float = 25.0
 @export var attack_range: float = 150.0
 @export var attack_cooldown: float = 1.0
+@export var laser_duration: float = 0.15
 
 @onready var head: Sprite2D = $Sprite2D/Head
 @onready var base_sprite: Sprite2D = $Sprite2D/Base
 
 var can_attack: bool = true
 var current_target: Node2D = null
+var is_firing_laser: bool = false
+var laser_target_position: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	pass
@@ -22,6 +25,20 @@ func _process(delta: float) -> void:
 
 		if can_attack:
 			attack_target()
+
+func _draw() -> void:
+	if is_firing_laser and current_target:
+		var from = Vector2.ZERO
+		var to = to_local(laser_target_position)
+
+		# Draw glow layers (outer to inner)
+		draw_line(from, to, Color(1.0, 0.4, 0.7, 0.2), 8.0)
+		draw_line(from, to, Color(1.0, 0.4, 0.7, 0.4), 5.0)
+		draw_line(from, to, Color(1.0, 0.5, 0.8, 0.6), 3.0)
+		# Core laser (bright pink)
+		draw_line(from, to, Color(1.0, 0.4, 0.8, 1.0), 2.0)
+		# Inner bright core
+		draw_line(from, to, Color(1.0, 0.8, 0.9, 1.0), 1.0)
 
 func find_nearest_enemy() -> void:
 	var enemies = get_tree().get_nodes_in_group("enemies")
@@ -65,6 +82,10 @@ func attack_target() -> void:
 		current_target.take_damage(damage)
 		print("Plasma shell attacked enemy for ", damage, " damage!")
 
+		# Show laser effect
+		laser_target_position = current_target.global_position
+		show_laser()
+
 		# Start cooldown
 		can_attack = false
 		await get_tree().create_timer(attack_cooldown).timeout
@@ -72,3 +93,12 @@ func attack_target() -> void:
 	else:
 		# Target might have been destroyed, find a new one
 		current_target = null
+
+func show_laser() -> void:
+	is_firing_laser = true
+	queue_redraw()
+
+	await get_tree().create_timer(laser_duration).timeout
+
+	is_firing_laser = false
+	queue_redraw()
