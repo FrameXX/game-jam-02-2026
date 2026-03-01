@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://cftgkr22fkpxd"]
 
 [ext_resource type="Script" uid="uid://m55mfcpgya63" path="res://scripts/HUD_controller.gd" id="1_5pdws"]
-[ext_resource type="Script" path="res://scripts/building_panel.gd" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://du0kpq5p75cmj" path="res://scripts/building_panel.gd" id="1_ahhtf"]
 [ext_resource type="Script" uid="uid://ccqoof8sts1n4" path="res://scripts/main_hud_panel.gd" id="1_oo0fn"]
 [ext_resource type="Texture2D" uid="uid://dkb8u1iwcskbh" path="res://assets/hole.png" id="3_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://v4hoc1oxqg63" path="res://assets/plasma_shell.png" id="4_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://boqothr2fsb4j" path="res://assets/destroy_building.png" id="4_hd3ao"]
 [ext_resource type="Script" uid="uid://cvseh6wf04bii" path="res://scripts/hole_button.gd" id="5_5pdws"]
 [ext_resource type="Script" uid="uid://bash8iqglmmfh" path="res://scripts/plasma_shell_button.gd" id="7_hd3ao"]
 
@@ -109,19 +110,23 @@ grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("1_ahhtf")
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/Building" unique_id=337559042]
+[node name="DestroyButton" type="Button" parent="CanvasLayer/Control/Building" unique_id=337559042]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = -1
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -31.0
-offset_right = 20.0
+offset_left = 4.0
+offset_top = -48.0
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "+10"
+icon = ExtResource("4_hd3ao")
+text_overrun_behavior = 3
+autowrap_mode = 1
+icon_alignment = 1
+expand_icon = true
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Building" unique_id=1415732554]
 layout_mode = 1
@@ -184,6 +189,6 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="CanvasLayer/Control/Main/MarginContainer/HBoxContainer/Start" to="CanvasLayer/Control/Main" method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Main/MarginContainer/HBoxContainer/Build" to="CanvasLayer/Control/Building" method="_on_build_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Main/MarginContainer/HBoxContainer2/Return" to="CanvasLayer/Control/Main" method="_on_return_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Building/Button" to="CanvasLayer/Control/Main" method="_on_button_pressed_plus_10"]
+[connection signal="pressed" from="CanvasLayer/Control/Building/DestroyButton" to="CanvasLayer/Control/Main" method="_on_button_pressed_plus_10"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/Hole" to="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/Hole" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/PlasmaShell" to="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/PlasmaShell" method="_on_pressed"]
