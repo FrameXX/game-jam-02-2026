@@ -3,7 +3,7 @@ extends Node2D
 @export var needs_path: bool = false
 @export var damage: float = 25.0
 @export var attack_range: float = 150.0
-@export var attack_cooldown: float = 1.0
+@export var attack_cooldown: float = 0.1
 @export var laser_duration: float = 0.15
 
 @onready var head: Sprite2D = $Sprite2D/Head

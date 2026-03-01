@@ -42,6 +42,8 @@ func take_damage(amount: float):
 		die()
 
 func die():
+	Global.gold += 10
+	$"../../../../HUD/CanvasLayer/Control/Main/Gold".text = "Gold: " + str(Global.gold)
 	emit_signal("died", self)
 	queue_free()
 
@@ -65,6 +67,9 @@ func fall_into_hole():
 
 func reached_end():
 	print("U ded")
-	# Damage the base when enemy reaches the end
+	$"../../../../HUD/CanvasLayer".show_dialog("U ded\nReturning to level selector")
+	await get_tree().create_timer(2.0).timeout 
 	Global.base_health -= 10
+	get_tree().change_scene_to_file("res://scenes/level_menu.tscn")
 	queue_free()
+	# Damage the base when enemy reaches the end

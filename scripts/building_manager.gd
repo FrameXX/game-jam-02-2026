@@ -148,8 +148,6 @@ func place_building():
 			print("A PATH, CANNOT PLACE")
 			can_place_here = false
 
-		pass
-
 	if can_place_here:
 		# Deduct Gold
 		Global.gold -= cost
