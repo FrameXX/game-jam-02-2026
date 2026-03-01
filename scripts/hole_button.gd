@@ -8,4 +8,4 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	print("Hole button pressed")
-	GameEvents.building_selected.emit("res://scenes/buildings/hole.tscn", )
+	GameEvents.building_selected.emit("res://scenes/buildings/hole.tscn")

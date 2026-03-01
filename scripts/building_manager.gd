@@ -30,21 +30,34 @@ func _ready():
 func set_tile_map(new_map: TileMap):  
 	tile_map = new_map  
 
-func _on_building_selected(path: String):  
-	selected_building_path = path  
-	current_building_resource = load(path)  
+func _on_building_selected(path: String):
+	print("Building selected: ", path)
+	selected_building_path = path
+	current_building_resource = load(path)
+
+	# 1. Clear previous ghost visuals
+	for child in ghost_building.get_children():
+		child.queue_free()
+
+	# 2. Instantiate the actual building scene
+	var building_instance = load(path).instantiate()
 	
-	var temp_node = current_building_resource.instantiate()  
-	var sprite = temp_node.get_node("Sprite2D") 
-	if sprite:  
-		ghost_building.texture = sprite.texture  
-		ghost_building.show()  
-	temp_node.queue_free()  
+	# 3. Disable collisions/scripts so the ghost doesn't "act" like a real building
+	if building_instance.has_node("CollisionShape2D"):
+		building_instance.get_node("CollisionShape2D").disabled = true
+	# Optional: building_instance.set_script(null) if you want to stop logic
+	
+	# 4. Add it to your ghost container
+	ghost_building.add_child(building_instance)
+	
+	# 5. Make the whole thing transparent
+	ghost_building.modulate = Color(1, 1, 1, 0.5) # 50% transparency
+	ghost_building.show() 
 	
 func _process(_delta):  
 	if not can_build or selected_building_path == "" or not tile_map:  
 		ghost_building.hide()  
-		return  
+		return
 
 	var mouse_pos = get_global_mouse_position()  
 	var cell_pos = tile_map.local_to_map(tile_map.to_local(mouse_pos))  
@@ -82,6 +95,10 @@ func _input(event: InputEvent):
 			place_building()  
 
 func place_building():  
+	if current_building_resource == null:
+		print("No building selected!")
+		return
+	
 	# 1. Check Money First
 	var cost = get_building_cost(selected_building_path)
 	if Global.gold < cost:

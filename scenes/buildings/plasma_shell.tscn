@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://cnbksffxp00t0"]
 
+[ext_resource type="Script" uid="uid://mftswgtb041y" path="res://scripts/buildings/plasma_shell.gd" id="1_0lt4w"]
 [ext_resource type="Texture2D" uid="uid://scm7df3r4pho" path="res://assets/plasma_shell_base.png" id="1_ho25h"]
 [ext_resource type="Texture2D" uid="uid://bal20b8mfrgxu" path="res://assets/plasma_shell_head.png" id="2_ho25h"]
 
 [node name="PlasmaShell" type="Node2D" unique_id=1104062282]
+script = ExtResource("1_0lt4w")
 
-[node name="Base" type="Sprite2D" parent="." unique_id=1737494530]
+[node name="Sprite2D" type="Node2D" parent="." unique_id=27506548]
+
+[node name="Base" type="Sprite2D" parent="Sprite2D" unique_id=1737494530]
 texture = ExtResource("1_ho25h")
 
-[node name="Head" type="Sprite2D" parent="." unique_id=731570549]
+[node name="Head" type="Sprite2D" parent="Sprite2D" unique_id=731570549]
 texture = ExtResource("2_ho25h")

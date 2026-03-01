@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://v4hoc1oxqg63" path="res://assets/plasma_shell.png" id="4_6fi6k"]
 [ext_resource type="Script" uid="uid://cvseh6wf04bii" path="res://scripts/hole_button.gd" id="5_5pdws"]
 [ext_resource type="Texture2D" uid="uid://ej3wua1cthrx" path="res://assets/cross_button.png" id="6_047uy"]
+[ext_resource type="Script" uid="uid://bash8iqglmmfh" path="res://scripts/plasma_shell_button.gd" id="7_hd3ao"]
 
 [sub_resource type="GDScript" id="GDScript_5ysmq"]
 script/source = "extends Button
@@ -147,11 +148,11 @@ script = ExtResource("5_5pdws")
 [node name="PlasmaShell" type="Button" parent="CanvasLayer/Control/Building/MarginContainer/HBoxContainer" unique_id=125831343]
 custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
-text = "50"
 icon = ExtResource("4_6fi6k")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
+script = ExtResource("7_hd3ao")
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1306409436]
 anchors_preset = 7
@@ -205,4 +206,5 @@ stretch_mode = 6
 [connection signal="pressed" from="CanvasLayer/Control/Main/MarginContainer/HBoxContainer/Build" to="CanvasLayer/Control/Building" method="_on_build_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/Button" to="CanvasLayer/Control/Main" method="_on_button_pressed_plus_10"]
 [connection signal="pressed" from="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/Hole" to="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/Hole" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/PlasmaShell" to="CanvasLayer/Control/Building/MarginContainer/HBoxContainer/PlasmaShell" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/CrossDialogueButton" to="CanvasLayer" method="_on_cross_dialogue_button_pressed"]
