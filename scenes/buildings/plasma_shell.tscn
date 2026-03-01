@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://scm7df3r4pho" path="res://assets/plasma_shell_base.png" id="1_ho25h"]
 [ext_resource type="Texture2D" uid="uid://bal20b8mfrgxu" path="res://assets/plasma_shell_head.png" id="2_ho25h"]
 
-[node name="PlasmaShell" type="CanvasLayer" unique_id=1163116810]
+[node name="PlasmaShell" type="Node2D" unique_id=1104062282]
 
 [node name="Base" type="Sprite2D" parent="." unique_id=1737494530]
 texture = ExtResource("1_ho25h")

@@ -20,7 +20,7 @@ func _ready():
 	add_child(ghost_building)
 func set_tile_map(new_map: TileMap):
 	tile_map = new_map
-	print("BuildingManager now using: ", tile_map.get_path())
+	print("Building manager now using: ", tile_map.get_path())
 
 func _on_building_selected(path: String):
 	selected_building_path = path
@@ -34,7 +34,7 @@ func _on_building_selected(path: String):
 		ghost_building.show()
 	temp_node.queue_free()
 	
-	print("Manager received: ", path)
+	print("Building manager received: ", path)
 	
 func _process(_delta):
 	if not can_build or selected_building_path == "" or not tile_map:
