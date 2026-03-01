@@ -4,6 +4,7 @@ extends PathFollow2D
 @export var max_health: float = 100.0
 
 var current_health: float
+var is_falling: bool = false
 
 signal died(enemy)
 
@@ -11,6 +12,9 @@ func _ready():
 	current_health = max_health
 
 func _process(delta):
+	if is_falling:
+		return
+
 	# progress_ratio is a value from 0.0 (start) to 1.0 (end)
 	# progress is the distance in pixels along the path
 	progress += speed * delta
@@ -20,7 +24,14 @@ func _process(delta):
 		reached_end()
 
 func _on_trap_detector_area_entered(area: Area2D):
-	# We know it's a hole because our Mask is set to Layer 4 (Traps)
+	# Already falling into another hole, ignore
+	if is_falling:
+		return
+
+	# Check if it's a hole (trap layer)
+	var parent = area.get_parent()
+	if parent and parent.has_method("register_enemy_fallen"):
+		parent.register_enemy_fallen()
 	fall_into_hole()
 
 func take_damage(amount: float):
@@ -35,6 +46,9 @@ func die():
 	queue_free()
 
 func fall_into_hole():
+	# Mark as falling to prevent triggering other holes
+	is_falling = true
+
 	# 1. Stop the enemy from moving
 	set_process(false)
 
