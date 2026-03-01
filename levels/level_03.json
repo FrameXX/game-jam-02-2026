@@ -2,23 +2,74 @@
 	"level_id": "level_03",
 	"paths": ["Left", "Right"],
 	"waves": [
-		{
-			"wave_number": 1.0,
-			"enemies": [
-				{
-					"type": "basic",
-					"count": 1.0,
-					"interval": 0.3,
-					"path_id": 0 
-				},
-				{
-					"type": "basic",
-					"count": 1.0,
-					"interval": 0.3,
-					"path_id": 1 
-				}
-			]
-		}
+		{ "wave_number": 1, "enemies": [
+			{ "type": "basic", "count": 20, "interval": 0.4, "path_id": 0 },
+			{ "type": "basic", "count": 20, "interval": 0.4, "path_id": 1 }
+		]},
+		{ "wave_number": 2, "enemies": [{ "type": "basic", "count": 60, "interval": 0.3, "path_id": 0 }] },
+		{ "wave_number": 3, "enemies": [{ "type": "basic", "count": 60, "interval": 0.3, "path_id": 1 }] },
+		{ "wave_number": 4, "enemies": [
+			{ "type": "basic", "count": 45, "interval": 0.2, "path_id": 0 },
+			{ "type": "basic", "count": 45, "interval": 0.2, "path_id": 1 }
+		]},
+		{ "wave_number": 5, "enemies": [
+			{ "type": "basic", "count": 120, "interval": 0.15, "path_id": 0 }
+		]},
+		{ "wave_number": 6, "enemies": [
+			{ "type": "basic", "count": 120, "interval": 0.15, "path_id": 1 }
+		]},
+		{ "wave_number": 7, "enemies": [
+			{ "type": "basic", "count": 100, "interval": 0.1, "path_id": 0 },
+			{ "type": "basic", "count": 100, "interval": 0.1, "path_id": 1 }
+		]},
+		{ "wave_number": 8, "enemies": [
+			{ "type": "basic", "count": 200, "interval": 0.2, "path_id": 0 }
+		]},
+		{ "wave_number": 9, "enemies": [
+			{ "type": "basic", "count": 200, "interval": 0.2, "path_id": 1 }
+		]},
+		{ "wave_number": 10, "enemies": [
+			{ "type": "basic", "count": 150, "interval": 0.05, "path_id": 0 },
+			{ "type": "basic", "count": 150, "interval": 0.05, "path_id": 1 }
+		]},
+		{ "wave_number": 11, "enemies": [
+			{ "type": "basic", "count": 300, "interval": 0.1, "path_id": 0 },
+			{ "type": "basic", "count": 100, "interval": 0.05, "path_id": 1 }
+		]},
+		{ "wave_number": 12, "enemies": [
+			{ "type": "basic", "count": 100, "interval": 0.05, "path_id": 0 },
+			{ "type": "basic", "count": 300, "interval": 0.1, "path_id": 1 }
+		]},
+		{ "wave_number": 13, "enemies": [
+			{ "type": "basic", "count": 250, "interval": 0.05, "path_id": 0 },
+			{ "type": "basic", "count": 250, "interval": 0.05, "path_id": 1 }
+		]},
+		{ "wave_number": 14, "enemies": [
+			{ "type": "basic", "count": 500, "interval": 0.08, "path_id": 0 }
+		]},
+		{ "wave_number": 15, "enemies": [
+			{ "type": "basic", "count": 500, "interval": 0.08, "path_id": 1 }
+		]},
+		{ "wave_number": 16, "enemies": [
+			{ "type": "basic", "count": 400, "interval": 0.04, "path_id": 0 },
+			{ "type": "basic", "count": 400, "interval": 0.04, "path_id": 1 }
+		]},
+		{ "wave_number": 17, "enemies": [
+			{ "type": "basic", "count": 600, "interval": 0.06, "path_id": 0 },
+			{ "type": "basic", "count": 200, "interval": 0.02, "path_id": 1 }
+		]},
+		{ "wave_number": 18, "enemies": [
+			{ "type": "basic", "count": 200, "interval": 0.02, "path_id": 0 },
+			{ "type": "basic", "count": 600, "interval": 0.06, "path_id": 1 }
+		]},
+		{ "wave_number": 19, "enemies": [
+			{ "type": "basic", "count": 800, "interval": 0.03, "path_id": 0 },
+			{ "type": "basic", "count": 800, "interval": 0.03, "path_id": 1 }
+		]},
+		{ "wave_number": 20, "enemies": [
+			{ "type": "basic", "count": 1500, "interval": 0.02, "path_id": 0 },
+			{ "type": "basic", "count": 1500, "interval": 0.02, "path_id": 1 }
+		] }
 	],
 	"supplies": ["1, 2, 0", "2, 1, 1"]
 }

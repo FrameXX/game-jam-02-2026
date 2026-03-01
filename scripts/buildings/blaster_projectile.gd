@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed: float = 512.0
+@export var speed: float = 2048.0
 @export var damage: float = 64.0
 @export var trail_length: int = 1
 @export var trail_spacing: float = 0.02
